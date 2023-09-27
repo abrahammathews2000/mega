@@ -1,0 +1,3 @@
+# ignore all files in any directory named ml_model
+ml_model/
+data/
