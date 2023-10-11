@@ -15,17 +15,18 @@ import os
 import concurrent.futures
 
 class LcGenerator:
-    def __init__(self, ydir, star2mega_radius_ratio=4,folder_name = 1):
-        self.folder_name = folder_name
-        self.y_dir = ydir  # './generatedData/shape_dict.npy'
-        self.batch_names = natsorted(os.listdir(self.y_dir))
+    def __init__(self, shape_dir, LD_Coeff,save_lc_folder_name,star2mega_radius_ratio=4):
+        self.save_lc_folder_name = save_lc_folder_name
+        self.shape_dir = shape_dir  # 
+        self.batch_names = natsorted(os.listdir(self.shape_dir))
         # Change the batch start(inclusive) and end (exlusive) limit in for loop
         # Selecting Files in the given folder
-        start_index = 131 # Inclusive
-        stop_index = 133 # Exclusive
+        self.LD_Coeff = LD_Coeff
+        start_index = int(0) # Inclusive
+        stop_index = 1 # len(self.batch_names) # Exclusive
         print(self.batch_names[start_index:stop_index])
         for batch in self.batch_names[start_index:stop_index]:
-            batch_link = self.y_dir + batch
+            batch_link = self.shape_dir + batch
             print('batch_link = ',batch_link)
             self.y = np.load(batch_link)
             self.y = self.y / np.amax(self.y)
@@ -55,36 +56,19 @@ class LcGenerator:
                 
             #---
     def gen_lc(self, temp_shape,name):
-        # Both of these two padding will give the same result 1st one saves little more memory space
         z = np.pad(temp_shape,pad_width=((self.pad_width_for_mega, self.pad_width_for_mega), (6, 6)))  # Padwidth = ((top,bottom),(left,right))
-        # z = np.pad(y[0], pad_width=((self.pad_width_for_mega, self.pad_width_for_mega), (pad_width_for_mega, pad_width_for_mega))) # Padwidth = ((top,bottom),(left,right))
-        # print("np.shape(z) ", np.shape(z))
-        # print(y[charge_index])
 
-        # plt.imshow(z, cmap='gray')
-        # plt.show()
         times = np.linspace(-35, 35, 1000)
 
-        # annulus = TransitingImage(opacitymat=z,v=0.4,t_ref=0.,t_arr=times) # For no limb darkening
-        annulus = TransitingImage(opacitymat=z, v=0.4, t_ref=0., t_arr=times,LDlaw='quadratic',LDCs=[0.5,0.05])
-        # annulus.plot_grid()
+        annulus = TransitingImage(opacitymat=z, v=0.4, t_ref=0., t_arr=times,LDlaw='quadratic',LDCs=self.LD_Coeff)
+
         annulus_LC, overlapTimes = annulus.gen_LC(t_arr=times) #,gpu=True)
 
         self.save_lc(annulus_LC, overlapTimes, name)
-        # return(annulus_LC,overlapTimes)
 
-        # fig, ax = plt.subplots(1,1,figsize=(8,6))
-        # # ax.plot(overlapTimes,annulus_LC,color="#1969ea",ls="-",lw=1)
-        # ax.scatter(overlapTimes,annulus_LC,color="black")
-        # ax.set_ylim(np.amin(annulus_LC)-0.01,1.01)
-        # plt.xlabel("Time [days]",fontsize=14)
-        # plt.ylabel("Relative flux",fontsize=14)
-        # plt.title("Light curve",fontsize=16)
-        # plt.show()
     def save_lc(self,lc,time,name):
         
-        np.savetxt("/home/abraham/Documents/ms_proj_shape_lc_gen/data_raw/lc/"+str(self.folder_name) +"/lcflux0" + str(self.star2mega_radius_ratio) +'_'+str(name) + ".csv", lc, delimiter=',')
-        # np.savetxt("./generatedData/lc/time/lctime0" + str(name) + ".csv", time, delimiter=',')
+        np.savetxt(str(self.save_lc_folder_name) +'lc_'+ str(self.star2mega_radius_ratio)+'_'+str(name) + ".csv", lc, delimiter=',')
         print("lc"+str(self.star2mega_radius_ratio) +'_'+ str(name)+"saved")
 
     def __del__(self):
