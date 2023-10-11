@@ -2,3 +2,4 @@
 ml_model/
 data/
 hello/
+__pycache__/
