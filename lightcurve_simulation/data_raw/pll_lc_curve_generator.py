@@ -11,16 +11,17 @@ from EightBitTransit.misc import *
 import concurrent.futures
 
 class LcGenerator:
-    def __init__(self, ydir, star2mega_radius_ratio=4,folder_name = 1):
-        self.y_dir = ydir  # './generatedData/shape_dict.npy'
-        self.y = np.load(self.y_dir)
+    def __init__(self, shape_dir, LD_Coeff,save_lc_folder_name,star2mega_radius_ratio=4):
+        self.shape_dir = shape_dir  # './generatedData/shape_dict.npy'
+        self.y = np.load(self.shape_dir)
         self.y = self.y / np.amax(self.y)
         self.y_shape = np.array(np.shape(self.y[0]))
         self.radius_mega = self.y_shape[0] / 2
         self.star2mega_radius_ratio = star2mega_radius_ratio
         self.radius_star = self.star2mega_radius_ratio * self.radius_mega
         self.pad_width_for_mega = int(self.radius_star - self.radius_mega)
-        self.folder_name = folder_name
+        self.folder_name = save_lc_folder_name
+        self.LD_Coeff = LD_Coeff
         #print('pad_width_for_mega = ', self.pad_width_for_mega)
         
         ##
@@ -55,21 +56,10 @@ class LcGenerator:
         z = np.pad(temp_shape,pad_width=((self.pad_width_for_mega, self.pad_width_for_mega), (6, 6)),mode = 'constant', constant_values=0.)  # Padwidth = ((top,bottom),(left,right))
         ##
 
-        ## 1 bPixel value for padding 1, complete background =1
-        # z = np.pad(temp_shape,pad_width=((self.pad_width_for_mega, self.pad_width_for_mega), (6, 6)),mode = 'constant', constant_values=1)  # Padwidth = ((top,bottom),(left,right))
-        ##
-
-        # 2.
-        # z = np.pad(y[0], pad_width=((self.pad_width_for_mega, self.pad_width_for_mega), (pad_width_for_mega, pad_width_for_mega))) # Padwidth = ((top,bottom),(left,right))
-        # print("np.shape(z) ", np.shape(z))
-        # print(y[charge_index])
-
-        # plt.imshow(z, cmap='gray')
-        # plt.show()
         times = np.linspace(-35, 35, 1000)
 
         # annulus = TransitingImage(opacitymat=z,v=0.4,t_ref=0.,t_arr=times) # For no limb darkening
-        annulus = TransitingImage(opacitymat=z, v=0.4, t_ref=0., t_arr=times,LDlaw='quadratic',LDCs=[0.5,0.05])
+        annulus = TransitingImage(opacitymat=z, v=0.4, t_ref=0., t_arr=times,LDlaw='quadratic',LDCs=self.LD_Coeff)
         print('z = ',z)
         # annulus.plot_grid()
         annulus_LC, overlapTimes = annulus.gen_LC(t_arr=times) #,gpu=True)
@@ -87,7 +77,7 @@ class LcGenerator:
         # plt.show()
     def save_lc(self,lc,time,name):
         
-        np.savetxt("/home/abraham/Documents/ms_proj_shape_lc_gen/data_raw/lc/"+str(self.folder_name) +"/lcflux0" + str(self.star2mega_radius_ratio) +'_'+str(name) + ".csv", lc, delimiter=',')
+        np.savetxt(str(self.folder_name) +'lc_'+ str(self.star2mega_radius_ratio)+'_'+str(name) + ".csv", lc, delimiter=',')
         # np.savetxt("./generatedData/lc/time/lctime0" + str(name) + ".csv", time, delimiter=',')
         print("lc"+str(self.star2mega_radius_ratio) +'_'+ str(name)+"saved")
 
