@@ -7,16 +7,15 @@ from natsort import natsorted
 import imageio.v3 as iio
 import matplotlib.pyplot as plt
 
-# Change this before every run
-index_shapefolder = 8
-#
+# !!! Change the input and output file path in the bottom
+
 class SaveLcAsNpy:
-    def __init__(self, lcFlux_dir, name_npy_file):
+    def __init__(self, raw_lc_dir, output_npy_lc_path):
         self.std_len_lc = 100
         # shape_dir - folder where shapes in png are stored
         # name_npy_file - name of the npy file to be saved as. Don't include the extension
-        self.name_npy_file = name_npy_file
-        self.lcFlux_dir = str(lcFlux_dir)
+        self.name_npy_file = output_npy_lc_path
+        self.lcFlux_dir = str(raw_lc_dir)
         self.lcFlux_filenames = natsorted(os.listdir(self.lcFlux_dir))
         print('lcFlux_filenames = ', self.lcFlux_filenames)
         self.no_files = len(self.lcFlux_filenames)
@@ -29,12 +28,12 @@ class SaveLcAsNpy:
              
         i = 0
         for lc_element in self.lcFlux_filenames:
-            temp_array = np.loadtxt(lc_dir + lc_element, delimiter=',')
+            temp_array = np.loadtxt(self.lcFlux_dir + lc_element, delimiter=',')
             lc_dict[i] = self.process_lc(temp_array)
             i = i + 1
         
-        np.save('/home/abraham/Documents/ms_proj_shape_lc_gen/data_npy/lc_npy/' + str(name_npy_file) + '.npy', lc_dict)
-        lc_dict_read = np.load('/home/abraham/Documents/ms_proj_shape_lc_gen/data_npy/lc_npy/' + str(name_npy_file) + '.npy')
+        np.save(self.name_npy_file, lc_dict)
+        lc_dict_read = np.load(self.name_npy_file)
         print('lc_dict = ', lc_dict_read)
         print('lc_dict = ', lc_dict_read.shape)
         print('All the LC are converted into single npy file')
@@ -65,6 +64,12 @@ class SaveLcAsNpy:
     def __del__(self):
         print('Destructor called, obj deleted.')
 
-lc_dir = '/home/abraham/Documents/ms_proj_shape_lc_gen/data_raw/lc/' + str(index_shapefolder) +'/'
-t = SaveLcAsNpy(lcFlux_dir=lc_dir,name_npy_file='lc_dict'+ '_' + str(index_shapefolder))
+
+# What is the folder path for the input raw light curves?
+raw_lc_dir = '../../data/test/raw/lc/lc_2_shape_1/'
+
+# Where do you want to save the output npy light curves file?
+# Include the full path including file name
+output_npy_lc_path = '../../data/test/npy/lc/lc_2_shape_1.npy'
+t = SaveLcAsNpy(raw_lc_dir=raw_lc_dir,output_npy_lc_path=output_npy_lc_path)
 del t
