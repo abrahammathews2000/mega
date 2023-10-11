@@ -9,9 +9,15 @@ from pll_lc_curve_generator import LcGenerator
 import os
 import time
 
+# Where do you want to save the lcs?
 # !! Change this everytime you run !!
 save_lc_in_folder = '../../data/test/raw/lc/lc_2_shape_1/' # For Test
 #
+
+# Which shapes do you need to simulate to get the lcs?
+# Give the npy file path for the shape
+shape_dir = '../../data/test/npy/shape/shape_1.npy'
+
 
 if not os.path.exists(save_lc_in_folder):
     os.mkdir(save_lc_in_folder)
@@ -20,8 +26,7 @@ if not os.path.exists(save_lc_in_folder):
 
 tic = time.perf_counter()
 
-# Give the npy file path for the shape
-shape_dir = '../../data/test/npy/shape/shape_1.npy'
+
 
 # Specifiy the size ratio between star and megastructure
 star2mega_ratio_array = np.array([4])
