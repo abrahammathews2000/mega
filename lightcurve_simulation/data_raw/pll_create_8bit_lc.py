@@ -11,16 +11,20 @@ import time
 
 # Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '../../data/test/raw/lc/lc_2_shape_1/' # For Test
+# save_lc_in_folder = '../../data/test/raw/lc/lc_2_shape_1/' # For Test
+save_lc_in_folder = '../../data/vald/raw/lc/lc_2_shape_1/' # For Validation
 #
 
 # Which shapes do you need to simulate to get the lcs?
 # Give the npy file path for the shape
-shape_dir = '../../data/test/npy/shape/shape_1.npy'
+# shape_dir = '../../data/test/npy/shape/shape_1.npy' # For Test
+shape_dir = '../../data/vald/npy/shape/shape_1.npy' # For Validation
 
+# if not os.path.exists(save_lc_in_folder):
+#     os.mkdir(save_lc_in_folder)
 
-if not os.path.exists(save_lc_in_folder):
-    os.mkdir(save_lc_in_folder)
+os.makedirs(save_lc_in_folder, exist_ok=True)
+
 
 
 
