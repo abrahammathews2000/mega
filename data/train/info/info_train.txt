@@ -1,0 +1,12 @@
+Train
+Shape
+data/train/npy/shape/shape_5.npy 
+    |  132136 shapes
+
+Lightcurves
+data/train/npy/lc/lc_1_shape_5.npy | saved as npy
+    | LDCs=[0.5,0.05] 
+    | star2mega_ratio_array = 4
+data/train/npy/lc/lc_2_shape_5.npy | saved as npy
+    | LDCs=[0.1,0.05] 
+    | star2mega_ratio_array = 4

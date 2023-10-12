@@ -1,0 +1,12 @@
+Test
+Shape
+1. data/test/npy/shape/shape_1.npy |  saved
+    250 shapes
+
+Lightcurves
+1. data/test/npy/lc/lc_1_shape_1.npy | saved
+    LDCs=[0.5,0.05] | 
+    star2mega_ratio_array = 4 |
+2. data/test/npy/lc/lc_2_shape_1.npy | saved
+    LDCs=[0.1,0.05] | 
+    star2mega_ratio_array = 4 |

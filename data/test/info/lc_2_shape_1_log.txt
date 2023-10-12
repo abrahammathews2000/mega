@@ -1,0 +1,12 @@
+Log for creating lightcurves for: 
+    data/test/npy/shape/shape_1.npy (250 shapes)
+With following property
+    lc_file_name: data/test/npy/lc/lc_2_shape_1.npy
+    LDCs=[0.1,0.05] | 
+    star2mega_ratio_array = 4 |
+
+1. Create light curve (lightcurve_simulation/data_raw/pll_create_8bit_lc.py) - y 
+Dependent_code = lightcurve_simulation/data_raw/pll_lc_curve_generator.py
+Took 41.3 s
+
+2. Create light curve as npy file (lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - y

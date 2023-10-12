@@ -1,0 +1,13 @@
+Vald
+Shape
+data/vald/npy/shape/shape_1.npy 
+    |  1000 shapes
+
+Lightcurves
+data/vald/npy/lc/lc_1_shape_1.npy | saved
+    | LDCs=[0.5,0.05] 
+    | star2mega_ratio_array = 4
+
+data/vald/npy/lc/lc_2_shape_1.npy | saved as npy
+    | LDCs=[0.1,0.05] 
+    | star2mega_ratio_array = 4
