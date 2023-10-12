@@ -12,7 +12,6 @@ import time
 
 # Where do you want to save the lcs?
 # !! Change this everytime you run !!
-# save_lc_in_folder = '../../data/test/raw/lc/lc_2_shape_1/' # For Test
 save_lc_in_folder = '../../data/train/raw/lc/lc_2_shape_5/' # For Train
 #
 

@@ -23,7 +23,7 @@ class LcGenerator:
         # Selecting Files in the given folder
         self.LD_Coeff = LD_Coeff
         start_index = int(0) # Inclusive
-        stop_index = 1 # len(self.batch_names) # Exclusive
+        stop_index = len(self.batch_names) # Exclusive
         print(self.batch_names[start_index:stop_index])
         for batch in self.batch_names[start_index:stop_index]:
             batch_link = self.shape_dir + batch
