@@ -67,15 +67,15 @@ class SaveLcAsNpy:
 
 
 # What is the folder path for the input raw light curves?
-# raw_lc_dir = '../../data/test/raw/lc/lc_2_shape /' # Test
-# raw_lc_dir = '../../data/vald/raw/lc/lc_2_shape /' # Validation
-raw_lc_dir = '../../data/train/raw/lc/lc_2_shape /' # Train
+raw_lc_dir = '../../data/test/raw/lc/lc_3_shape_1/' # Test
+# raw_lc_dir = '../../data/vald/raw/lc/lc_3_shape_1/' # Validation
+# raw_lc_dir = '../../data/train/raw/lc/lc_3_shape_1/' # Train
 
 # Where do you want to save the output npy light curves file?
 # Include the full path including file name
-# output_npy_lc_path = '../../data/test/npy/lc/lc_2_shape .npy' # Test
+output_npy_lc_path = '../../data/test/npy/lc/lc_3_shape_1.npy' # Test
 # output_npy_lc_path = '../../data/vald/npy/lc/lc_2_shape .npy' # Validation
-output_npy_lc_path = '../../data/train/npy/lc/lc_2_shape .npy'# Train
+# output_npy_lc_path = '../../data/train/npy/lc/lc_2_shape .npy'# Train
 
 t = SaveLcAsNpy(raw_lc_dir=raw_lc_dir,output_npy_lc_path=output_npy_lc_path)
 del t
