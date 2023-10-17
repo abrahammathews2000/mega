@@ -6,6 +6,7 @@ import os
 from natsort import natsorted
 import imageio.v3 as iio
 import matplotlib.pyplot as plt
+import time
 
 # !!! Change the input and output file path in the bottom
 tic = time.perf_counter()
