@@ -1,0 +1,16 @@
+Log for creating lightcurves for: 
+    data/train/npy/shape/shape_filled5_batches (132136 shapes - [ ]--> Confirm from lc simulated)
+With following property
+    lc_file_name: data/train/npy/lc/lc_5_shape_5.npy <-- Change
+    LDCs=[0.8,0.05] |  <-- Change
+    star2mega_ratio_array = 4 |
+
+
+1. Create light curve 
+(lightcurve_simulation/data_raw/batch_pll_create_8bit_lc.py) - y
+max_workers = 30
+18761.4  s  <-- Change
+Dependent code: lightcurve_simulation/data_raw/batch_pll_lc_curve_generator.py
+2. Create light curve as npy file 
+(lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - y
+  s <-- Change

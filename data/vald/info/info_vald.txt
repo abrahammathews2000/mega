@@ -11,3 +11,11 @@ data/vald/npy/lc/lc_1_shape_1.npy | saved
 data/vald/npy/lc/lc_2_shape_1.npy | saved as npy
     | LDCs=[0.1,0.05] 
     | star2mega_ratio_array = 4
+
+data/vald/npy/lc/lc_3_shape_1.npy | saved as npy
+    | LDCs=[0.9,0.05] 
+    | star2mega_ratio_array = 4
+    
+data/vald/npy/lc/lc_4_shape_1.npy | saved as npy
+    | LDCs=[0.2,0.05] 
+    | star2mega_ratio_array = 4

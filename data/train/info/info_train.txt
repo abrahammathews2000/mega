@@ -10,3 +10,15 @@ data/train/npy/lc/lc_1_shape_5.npy | saved as npy
 data/train/npy/lc/lc_2_shape_5.npy | saved as npy
     | LDCs=[0.1,0.05] 
     | star2mega_ratio_array = 4
+data/train/npy/lc/lc_3_shape_5.npy | saved as npy
+    | LDCs=[0.9,0.05] 
+    | star2mega_ratio_array = 4
+data/train/npy/lc/lc_4_shape_5.npy | saved as npy
+    | LDCs=[0.2,0.05] 
+    | star2mega_ratio_array = 4
+data/train/npy/lc/lc_5_shape_5.npy | saved as npy
+    | LDCs=[0.8,0.05] 
+    | star2mega_ratio_array = 4
+data/train/npy/lc/lc_6_shape_5.npy | saved as npy
+    | LDCs=[0.7,0.05] 
+    | star2mega_ratio_array = 4

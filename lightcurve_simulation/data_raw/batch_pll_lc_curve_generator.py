@@ -43,7 +43,7 @@ class LcGenerator:
             self.y[where_0] = 1  # opacity map. 0 = no opacity (transparent); 1 = fully opaque
             self.y[where_1] = 0
     
-            with concurrent.futures.ProcessPoolExecutor() as executor:
+            with concurrent.futures.ProcessPoolExecutor(max_workers=30) as executor:
                 results = [executor.submit(self.gen_lc,self.y[i],str(batch)+'_'+str(i)) for i in np.arange(len(self.y))]
 
                 num_workers = executor._max_workers

@@ -39,7 +39,7 @@ class LcGenerator:
 
 
         # For CPU only work with original 8bittransit
-        with concurrent.futures.ProcessPoolExecutor() as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=24) as executor:
             results = [executor.submit(self.gen_lc,self.y[i],i) for i in np.arange(len(self.y))]
 
             num_workers = executor._max_workers

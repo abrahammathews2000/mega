@@ -11,8 +11,8 @@ import time
 
 # Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '../../data/test/raw/lc/lc_3_shape_1/' # For Test
-# save_lc_in_folder = '../../data/vald/raw/lc/lc_2_shape_1/' # For Validation
+save_lc_in_folder = '../../data/test/raw/lc/lc_4_shape_1/' # For Test
+# save_lc_in_folder = '../../data/vald/raw/lc/lc_4_shape_1/' # For Validation
 #
 
 # Which shapes do you need to simulate to get the lcs?
@@ -38,7 +38,7 @@ print('star2mega_ratio_array =' ,star2mega_ratio_array)
 
 for i in np.arange(0,len(star2mega_ratio_array),1):
     lc = LcGenerator(shape_dir=shape_dir,
-                     LD_Coeff = [0.9,0.05],
+                     LD_Coeff = [0.2,0.05],
                      save_lc_folder_name=save_lc_in_folder,
                      star2mega_radius_ratio=star2mega_ratio_array[i]                     
                     )
