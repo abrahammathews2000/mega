@@ -4,21 +4,24 @@ data/train/npy/shape/shape_5.npy
     |  132136 shapes
 
 Lightcurves
-data/train/npy/lc/lc_1_shape_5.npy | saved as npy
+1. data/train/npy/lc/lc_1_shape_5.npy | saved as npy
     | LDCs=[0.5,0.05] 
     | star2mega_ratio_array = 4
-data/train/npy/lc/lc_2_shape_5.npy | saved as npy
+2. data/train/npy/lc/lc_2_shape_5.npy | saved as npy
     | LDCs=[0.1,0.05] 
     | star2mega_ratio_array = 4
-data/train/npy/lc/lc_3_shape_5.npy | saved as npy
+3. data/train/npy/lc/lc_3_shape_5.npy | saved as npy
     | LDCs=[0.9,0.05] 
     | star2mega_ratio_array = 4
-data/train/npy/lc/lc_4_shape_5.npy | saved as npy
+4. data/train/npy/lc/lc_4_shape_5.npy | saved as npy
     | LDCs=[0.2,0.05] 
     | star2mega_ratio_array = 4
-data/train/npy/lc/lc_5_shape_5.npy | saved as npy
+5. data/train/npy/lc/lc_5_shape_5.npy | saved as npy
     | LDCs=[0.8,0.05] 
     | star2mega_ratio_array = 4
-data/train/npy/lc/lc_6_shape_5.npy | saved as npy
+6. data/train/npy/lc/lc_6_shape_5.npy | saved as npy
     | LDCs=[0.7,0.05] 
+    | star2mega_ratio_array = 4
+7. data/train/npy/lc/lc_7_shape_5.npy | (1) done (2) done
+    | LDCs=[0.6,0.05] 
     | star2mega_ratio_array = 4

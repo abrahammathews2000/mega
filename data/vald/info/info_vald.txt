@@ -4,18 +4,24 @@ data/vald/npy/shape/shape_1.npy
     |  1000 shapes
 
 Lightcurves
-data/vald/npy/lc/lc_1_shape_1.npy | saved
+1. data/vald/npy/lc/lc_1_shape_1.npy | saved
     | LDCs=[0.5,0.05] 
     | star2mega_ratio_array = 4
 
-data/vald/npy/lc/lc_2_shape_1.npy | saved as npy
+2. data/vald/npy/lc/lc_2_shape_1.npy | saved as npy
     | LDCs=[0.1,0.05] 
     | star2mega_ratio_array = 4
 
-data/vald/npy/lc/lc_3_shape_1.npy | saved as npy
+3. data/vald/npy/lc/lc_3_shape_1.npy | saved as npy
     | LDCs=[0.9,0.05] 
     | star2mega_ratio_array = 4
     
-data/vald/npy/lc/lc_4_shape_1.npy | saved as npy
+4. data/vald/npy/lc/lc_4_shape_1.npy | saved as npy
     | LDCs=[0.2,0.05] 
+    | star2mega_ratio_array = 4
+5. data/vald/npy/lc/lc_5_shape_1.npy |  (1) done (2) done
+    | LDCs=[0.8,0.05] 
+    | star2mega_ratio_array = 4
+6. data/vald/npy/lc/lc_6_shape_1.npy |  (1) done (2) done
+    | LDCs=[0.7,0.05] 
     | star2mega_ratio_array = 4

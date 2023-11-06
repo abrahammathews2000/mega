@@ -5,10 +5,12 @@ With following property
     LDCs=[0.2,0.05] | 
     star2mega_ratio_array = 4 |
 
-1. Create light curve (lightcurve_simulation/data_raw/pll_create_8bit_lc.py) - y
+1. Create light curve 
+(lightcurve_simulation/data_raw/pll_create_8bit_lc.py) - y
 Trying with 24 workers
 Dependent_code = lightcurve_simulation/data_raw/pll_lc_curve_generator.py
 Took  146.7 s
 
-2. Create light curve as npy file (lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - n
+2. Create light curve as npy file 
+(lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - y
 0.387 s

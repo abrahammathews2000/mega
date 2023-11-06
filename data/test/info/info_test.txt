@@ -16,3 +16,9 @@ Lightcurves
 4. data/test/npy/lc/lc_4_shape_1.npy | saved as npy
     LDCs=[0.2,0.05] | 
     star2mega_ratio_array = 4 | (250,100)
+5. data/test/npy/lc/lc_5_shape_1.npy |  (1) done (2) done
+    LDCs=[0.8,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+6. data/test/npy/lc/lc_6_shape_1.npy |  (1) done (2) done
+    LDCs=[0.7,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
