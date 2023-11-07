@@ -22,3 +22,12 @@ Lightcurves
 6. data/test/npy/lc/lc_6_shape_1.npy |  (1) done (2) done
     LDCs=[0.7,0.05] | 
     star2mega_ratio_array = 4 | (250,100)
+7. data/test/npy/lc/lc_7_shape_1.npy |  (1) done (2) done
+    LDCs=[0.6 ,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+8. data/test/npy/lc/lc_8_shape_1.npy |  (1) done (2) done
+    LDCs=[0.3,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+9. data/test/npy/lc/lc_9_shape_1.npy |  (1) done (2) done
+    LDCs=[0.4,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
