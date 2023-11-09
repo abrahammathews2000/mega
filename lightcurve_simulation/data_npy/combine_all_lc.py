@@ -1,7 +1,7 @@
 # Code to combine all light curves in 
 # Test Dataset (completed) 
-# Vald Dataset ()
-# Train Dataset ()
+# Vald Dataset (completed)
+# Train Dataset (completed)
 # to single npy file
 import numpy as np
 
@@ -40,6 +40,7 @@ if (choice == 'y' or choice == 'Y'):
     print("Combined files saved in "+" "+save_path)
 else:
     print("Exiting the program!")
+
 
 # --- #
 # --- #
