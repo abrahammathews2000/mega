@@ -17,3 +17,6 @@ This folder contains contains code for ml training and testing
 
 6. ml_training/ML_model_v5_noise_nine_LDCs-testing_only.ipynb
 - This code is used to test the ML model (trained using ml_training/ML_model_v5_noise_nine_LDCs-training_only.ipynb) on simulated test light curves for 9 limb darkening cases simultaneously [a,b] =[0.1,0.5] to [0.9,0.5]
+
+7. ml_training/overlap_lightcurves_simul_kepler_2.ipynb
+- Code to plot Kepler light curve on top of simulatied light curve and then try to match both of them also ML Prediction on Interpolated Kepler light curve is present
