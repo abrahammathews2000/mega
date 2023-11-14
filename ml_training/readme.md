@@ -11,3 +11,9 @@ This folder contains contains code for ml training and testing
 
 4. ml_training/ML_model_cyberplanet_v3_noise.ipynb
 - This code was used to give Gaussian noise for single SNR
+
+5. ml_training/ML_model_v5_noise_nine_LDCs-training_only.ipynb
+- This code is used to train an ML model on light curves for 9 limb darkening cases simultaneously [a,b] =[0.1,0.5] to [0.9,0.5]
+
+6. ml_training/ML_model_v5_noise_nine_LDCs-testing_only.ipynb
+- This code is used to test the ML model (trained using ml_training/ML_model_v5_noise_nine_LDCs-training_only.ipynb) on simulated test light curves for 9 limb darkening cases simultaneously [a,b] =[0.1,0.5] to [0.9,0.5]
