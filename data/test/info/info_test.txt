@@ -31,3 +31,27 @@ Lightcurves
 9. data/test/npy/lc/lc_9_shape_1.npy |  (1) done (2) done
     LDCs=[0.4,0.05] | 
     star2mega_ratio_array = 4 | (250,100)
+10. data/test/npy/lc/lc_10_shape_1.npy |  (1) done (2) done
+    LDCs=[0.75,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+11. data/test/npy/lc/lc_11_shape_1.npy |  (1) done (2) done
+    LDCs=[0.46,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+12. data/test/npy/lc/lc_12_shape_1.npy |  (1) done (2) done
+    LDCs=[0.23,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+13. data/test/npy/lc/lc_13_shape_1.npy |  (1) done (2) done
+    LDCs=[0.95,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+14. data/test/npy/lc/lc_14_shape_1.npy |  (1) done (2) done
+    LDCs=[0.05,0.05] | 
+    star2mega_ratio_array = 4 | (250,100)
+15. data/test/npy/lc/lc_15_shape_1.npy |  (1) done (2) done
+    LDCs=[0.73,0.08] | 
+    star2mega_ratio_array = 4 | (250,100)
+16. data/test/npy/lc/lc_16_shape_1.npy |  (1) done (2) done
+    LDCs=[0.35,0.03] | 
+    star2mega_ratio_array = 4 | (250,100)
+17. data/test/npy/lc/lc_17_shape_1.npy |  (1) done (2) done
+    LDCs=[0.62,0.15] | 
+    star2mega_ratio_array = 4 | (250,100)
