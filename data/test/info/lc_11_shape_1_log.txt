@@ -1,0 +1,16 @@
+Log for creating lightcurves for: 
+    data/test/npy/shape/shape_1.npy [(250, 100)] (yes) -  <-- Test Change this in code
+With following property
+    lc_file_name: data/test/npy/lc/lc_11_shape_1.npy  <-- Change this in code
+    LDCs=[0.46,0.05] |   <-- Change this in code
+    star2mega_ratio_array = 4 |
+
+1. Create light curve 
+(lightcurve_simulation/data_raw/pll_create_8bit_lc.py) - y
+Dependent_code = lightcurve_simulation/data_raw/pll_lc_curve_generator.py 
+(max_workers=30)
+36 s
+
+2. Create light curve as npy file 
+(lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - y
+0.12 s
