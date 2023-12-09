@@ -29,7 +29,7 @@ class LcGenerator:
             batch_link = self.shape_dir + batch
             print('batch_link = ',batch_link)
             self.y = np.load(batch_link)
-            self.y = self.y / np.amax(self.y)
+            self.y = self.y / np.amax(self.y) # Normalizing images pixel value = [0,1]
             print('self.y = ',self.y)
             self.y_shape = np.array(np.shape(self.y[0]))
             self.radius_mega = self.y_shape[0] / 2

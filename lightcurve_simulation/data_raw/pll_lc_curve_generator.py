@@ -14,7 +14,7 @@ class LcGenerator:
     def __init__(self, shape_dir, LD_Coeff,save_lc_folder_name,star2mega_radius_ratio=4):
         self.shape_dir = shape_dir  # './generatedData/shape_dict.npy'
         self.y = np.load(self.shape_dir)
-        self.y = self.y / np.amax(self.y)
+        self.y = self.y / np.amax(self.y)  # Normalizing images pixel value = [0,1]
         self.y_shape = np.array(np.shape(self.y[0]))
         self.radius_mega = self.y_shape[0] / 2
         self.star2mega_radius_ratio = star2mega_radius_ratio
