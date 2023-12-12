@@ -22,6 +22,7 @@ class LcGenerator:
         self.pad_width_for_mega = int(self.radius_star - self.radius_mega)
         self.folder_name = save_lc_folder_name
         self.LD_Coeff = LD_Coeff
+        print("LD_Coeff = ",self.LD_Coeff)
         #print('pad_width_for_mega = ', self.pad_width_for_mega)
         
         ##

@@ -29,7 +29,8 @@ class SaveAsNpy:
         for shape_element in self.shape_filenames:
             shape_dict[i] = np.array(iio.imread(self.shape_dir+shape_element))
             i = i + 1
-        shape_dict = np.where(shape_dict > (0.15*255.0), 1, 0)
+        shape_dict = np.where(shape_dict > (0.15*255.0), 255, 0) 
+        # For consistency with previous code make max value as 255 not 1
         # Saved png image 255 = white = background
         # if pixel value > 0.15*255.0 --> pixel value = 255 
         # otherwise pixel value = 0

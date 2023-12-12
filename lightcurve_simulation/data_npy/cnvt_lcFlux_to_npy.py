@@ -14,7 +14,7 @@ class SaveLcAsNpy:
     def __init__(self, raw_lc_dir, output_npy_lc_path):
         self.std_len_lc = 100
         # shape_dir - folder where shapes in png are stored
-        # name_npy_file - name of the npy file to be saved as. Don't include the extension
+        # name_npy_file - name of the npy file to be saved as. Include the extension
         self.name_npy_file = output_npy_lc_path
         self.lcFlux_dir = str(raw_lc_dir)
         self.lcFlux_filenames = natsorted(os.listdir(self.lcFlux_dir))
