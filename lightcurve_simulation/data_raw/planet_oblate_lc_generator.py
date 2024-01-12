@@ -11,19 +11,19 @@ import time
 
 # Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_planet_oblate/lc_1_planet_oblate/' # For Train
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_planet_oblate_circle/lc_1_planet_oblate/' # For Train
 #
 
 # Which shapes do you need to simulate to get the lcs?
 # Give the npy file path for the shape
-shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_oblate.npy' # For Planet
+shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_circle.npy' # For Planet
 
 # if not os.path.exists(save_lc_in_folder):
 #     os.mkdir(save_lc_in_folder)
 
 
 # Specifiy the limb darkening coefficient
-LD_Coeff_array = np.array([[0.5,0.4],[0.5,0.5],[0.5,0.6]])
+LD_Coeff_array = np.array([[0.4155,0.2555]])
 
 # Specifiy the size ratio between star and megastructure
 star2mega_ratio = 4
