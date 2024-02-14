@@ -11,7 +11,7 @@ import time
 
 class SaveLcAsNpy:
     def __init__(self, raw_lc_dir, output_npy_lc_path):
-        self.std_len_lc = 120
+        self.std_len_lc = 100
         # shape_dir - folder where shapes in png are stored
         # name_npy_file - name of the npy file to be saved as. Include the extension
         self.name_npy_file = output_npy_lc_path
@@ -40,22 +40,41 @@ class SaveLcAsNpy:
 
     def process_lc(self,temp_array):
         self.temp_lc = temp_array
-        test_lc_scaled_append = np.ones(120)
-        test_lc_scaled_append[15:105] = self.temp_lc
-        return test_lc_scaled_append
-    print("Extended the light curves")
+        self.length_one_lc = len(self.temp_lc)
+        if self.length_one_lc >= self.std_len_lc:
+            self.processed_lc = self.down_sample(self.temp_lc)
+        elif self.length_one_lc < self.std_len_lc:
+            self.processed_lc = self.interpolate(self.temp_lc)
+        return self.processed_lc
+
+    def down_sample(self,to_down_sample_lc):
+        self.to_down_sample = to_down_sample_lc
+        dwn_sample_idx = np.round(np.linspace(0, self.length_one_lc - 1, self.std_len_lc)).astype(int)
+        down_sample_lc = self.to_down_sample[dwn_sample_idx]
+        print("Downsampled original lightcurve")
+        return down_sample_lc
+    
+    def interpolate(self,to_interpolate_lc):
+        self.to_interpolate_lc = to_interpolate_lc
+        xp = np.linspace(0, self.length_one_lc - 1,self.length_one_lc)
+        x_eval = np.linspace(0, self.length_one_lc - 1, self.std_len_lc)
+        interpolate_lc = np.interp(x = x_eval, xp=xp, fp = self.to_interpolate_lc)
+        print("Interpolated the original lightcurve")
+        return interpolate_lc
+
 
     def __del__(self):
         print('Destructor called, obj deleted.')
 
 
 # What is the folder path for the input raw light curves?
-raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_planet_oblate/lc_1_planet_oblate_circle/'
+# raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_planet_oblate/lc_1_planet_oblate_circle/'
+raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/14Feb2024_circle_38_38_px/'
 
 # Where do you want to save the output npy light curves file?
-# Include the full path including file name
-output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_planet_oblate/lc_1_planet_oblate_circle.npy' 
-
+# Include the full path including file name and extension
+# output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_planet_oblate/lc_1_planet_oblate_circle.npy' 
+output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/lc/lc_1_14Feb2024_circle_38_38_px.npy'
 print('raw_lc_dir = ',raw_lc_dir)
 print('output_npy_lc_path = ',output_npy_lc_path)
 user_input = input("Do you want to run the code? (y/n): ")
