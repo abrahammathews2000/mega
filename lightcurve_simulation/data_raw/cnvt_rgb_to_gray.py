@@ -6,7 +6,7 @@ import cv2
 import os
 
 # Set the path to the folder containing the images
-image_folder = '/home/abraham/Documents/ms_proj_shape_lc_gen/data_raw/shape/3/'
+image_folder = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/shape/14Feb2024_circle_38_38_px/'
 
 # Loop through all the files in the folder
 for filename in os.listdir(image_folder):
