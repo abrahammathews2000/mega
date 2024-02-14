@@ -1,8 +1,8 @@
 # ignore all files in any directory named ml_model
 ml_model/
-data/data_npy/
-data/data_raw/
-data/info/
+data/data_npy_old/
+data/data_raw_old/
+data/info_old/
 data/tfr_shallue/
 data/test/npy/
 data/test/raw/
