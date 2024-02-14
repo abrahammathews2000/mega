@@ -18,3 +18,6 @@ Use code: lightcurve_simulation/data_raw/batch_pll_create_8bit_lc.pys
 The above code is dependent on: lightcurve_simulation/data_raw/batch_pll_lc_curve_generator.py
 - In this code you can work with EightBitTransit Parameters like, limb darkening law, velocity of objects,
 observation time, ...
+
+3. To first convert RGB images to single channel 
+Use the code: lightcurve_simulation/data_raw/cnvt_rgb_to_gray.py
