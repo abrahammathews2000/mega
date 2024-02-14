@@ -11,13 +11,15 @@ import time
 
 # Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '../../data/test/raw/lc/lc_17_shape_1/' # For Test
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/14Feb2024_circle_38_38_px/'
+# save_lc_in_folder = '../../data/test/raw/lc/lc_17_shape_1/' # For Test
 # save_lc_in_folder = '../../data/vald/raw/lc/lc_9_shape_1/' # For Validation
 #
 
 # Which shapes do you need to simulate to get the lcs?
 # Give the npy file path for the shape
-shape_dir = '../../data/test/npy/shape/shape_1.npy' # For Test
+shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/shape/14Feb2024_circle_38_38_px.npy'
+# shape_dir = '../../data/test/npy/shape/shape_1.npy' # For Test
 # shape_dir = '../../data/vald/npy/shape/shape_1.npy' # For Validation
 
 # if not os.path.exists(save_lc_in_folder):
@@ -25,7 +27,7 @@ shape_dir = '../../data/test/npy/shape/shape_1.npy' # For Test
 
 
 # Specifiy the limb darkening coefficient
-LD_Coeff = [0.62,0.15]
+LD_Coeff = [0.5,0.05]
 
 # Specifiy the size ratio between star and megastructure
 star2mega_ratio_array = np.array([4])
