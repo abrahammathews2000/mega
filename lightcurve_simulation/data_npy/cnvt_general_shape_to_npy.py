@@ -34,6 +34,7 @@ class SaveAsNpy:
         # Saved png image 255 = white = background
         # if pixel value > 0.15*255.0 --> pixel value = 255 
         # otherwise pixel value = 0
+        # While training for machine learning interchange 1 and 0 manually, during training  1-opaque 0-transparent
 
         np.save(str(self.save_location_npy_file)+'.npy', shape_dict)
         shape_dict_read = np.load(str(save_location_npy_file)+'.npy')
