@@ -13,5 +13,5 @@ Use the code: lightcurve_simulation/data_npy/cnvt_shape_to_npy.py
 3. To convert multiple light curves (for general shapes) saved as csv into a single npy file
 Use the code: lightcurve_simulation/data_npy/cnvt_general_lcFlux_to_npy.py
 
-4. To convert shapes with folder named with number (for general shapes) in a folder into npy
+4. To convert shapes (for general shapes) in a folder into npy
 Use the code: lightcurve_simulation/data_npy/cnvt_general_shape_to_npy.py
