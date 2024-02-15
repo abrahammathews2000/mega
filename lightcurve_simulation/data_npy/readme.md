@@ -15,3 +15,10 @@ Use the code: lightcurve_simulation/data_npy/cnvt_general_lcFlux_to_npy.py
 
 4. To convert shapes (for general shapes) in a folder into npy
 Use the code: lightcurve_simulation/data_npy/cnvt_general_shape_to_npy.py
+
+5. To plot lightcurve
+    - To plot the light curves of artificial shapes for different Limb Darkening Coefficients
+    - Plot 3 shapes and their lightcurves single LDCs (overlap)
+    - To plot the difference between two lightcurves
+    - Save any new plots as csv
+Use the code:lightcurve_simulation/data_npy/plot_lc.ipynb
