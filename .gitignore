@@ -13,3 +13,4 @@ data/vald/raw/
 hello/
 __pycache__/
 data/random/
+lightcurve_simulation/data_npy/batman_R0.2152_ldc_0.5_0.05.csv
