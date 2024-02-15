@@ -10,8 +10,8 @@ import time
 # !!! Change the input and output file path in the bottom
 
 class SaveLcAsNpy:
-    def __init__(self, raw_lc_dir, output_npy_lc_path):
-        self.std_len_lc = 100
+    def __init__(self, raw_lc_dir, output_npy_lc_path,std_len_lc=100):
+        self.std_len_lc = std_len_lc
         # shape_dir - folder where shapes in png are stored
         # name_npy_file - name of the npy file to be saved as. Include the extension
         self.name_npy_file = output_npy_lc_path
@@ -69,20 +69,24 @@ class SaveLcAsNpy:
 
 # What is the folder path for the input raw light curves?
 # raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_planet_oblate/lc_1_planet_oblate_circle/'
-raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/14Feb2024_circle_38_38_px/'
+raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/BATMAN_R0.2152_ldc_0.5_0.05/'
 
 # Where do you want to save the output npy light curves file?
 # Include the full path including file name and extension
 # output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_planet_oblate/lc_1_planet_oblate_circle.npy' 
-output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/lc/lc_1_14Feb2024_circle_38_38_px.npy'
+output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/lc/lc_BATMAN_R0.2152_ldc_0.5_0.05.npy'
+std_len_lc = 120 
+
 print('raw_lc_dir = ',raw_lc_dir)
 print('output_npy_lc_path = ',output_npy_lc_path)
+print('std_len_lc = ',std_len_lc)
+
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
 if user_input.lower() == "y":
     # Place the code you want to run here
     print("Running the code...")
-    t = SaveLcAsNpy(raw_lc_dir=raw_lc_dir,output_npy_lc_path=output_npy_lc_path)
+    t = SaveLcAsNpy(raw_lc_dir=raw_lc_dir,output_npy_lc_path=output_npy_lc_path,std_len_lc=std_len_lc)
     del t
 else :
     print("Exiting the program.")
