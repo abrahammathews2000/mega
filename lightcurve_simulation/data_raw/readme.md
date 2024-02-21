@@ -1,6 +1,6 @@
 This folder contains codes to create raw datas
 Total number of programs in this folder: 16
-No. of codes documented in readme: 4
+No. of codes documented in readme: 5
 1. To generate light curves of a set of shapes saved in single .npy file
 Use code: lightcurve_simulation/data_raw/pll_create_8bit_lc.py
 - You can change limb darkening coefficients, star2mega_ratio
@@ -21,3 +21,6 @@ observation time, ...
 
 3. To first convert RGB images to single channel 
 Use the code: lightcurve_simulation/data_raw/cnvt_rgb_to_gray.py
+
+4. lightcurve_simulation/data_raw/plot_circle.ipynb
+- to plot circles with different size within 38 x 38 pixel
