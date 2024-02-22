@@ -11,14 +11,14 @@ import time
 
 # Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/14Feb2024_circle_38_38_px/'
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/21Feb2024_circles_38_38_px/'
 # save_lc_in_folder = '../../data/test/raw/lc/lc_17_shape_1/' # For Test
 # save_lc_in_folder = '../../data/vald/raw/lc/lc_9_shape_1/' # For Validation
 #
 
 # Which shapes do you need to simulate to get the lcs?
 # Give the npy file path for the shape
-shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/shape/14Feb2024_circle_38_38_px.npy'
+shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/shape/21Feb2024_circles_38_38_px.npy'
 # shape_dir = '../../data/test/npy/shape/shape_1.npy' # For Test
 # shape_dir = '../../data/vald/npy/shape/shape_1.npy' # For Validation
 

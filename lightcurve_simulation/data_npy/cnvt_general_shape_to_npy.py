@@ -50,5 +50,8 @@ class SaveAsNpy:
 # j = SaveAsNpy(shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/shape/shape_oblate/',
 #              save_location_npy_file = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_oblate' )
 
-j = SaveAsNpy(shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/shape/14Feb2024_circle_38_38_px/',
-              save_location_npy_file = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/shape/14Feb2024_circle_38_38_px')
+j = SaveAsNpy(shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/shape/21Feb2024_circles_38_38_px/',
+              save_location_npy_file = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/shape/21Feb2024_circles_38_38_px')
+
+
+# save_location_npy_file - name of the npy file to be saved as. Don't include the extension

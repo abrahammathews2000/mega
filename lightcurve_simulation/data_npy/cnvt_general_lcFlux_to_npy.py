@@ -69,13 +69,13 @@ class SaveLcAsNpy:
 
 # What is the folder path for the input raw light curves?
 # raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_planet_oblate/lc_1_planet_oblate_circle/'
-raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/BATMAN_R0.2152_ldc_0.5_0.05/'
+raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/21Feb2024_circles_38_38_px/'
 
 # Where do you want to save the output npy light curves file?
 # Include the full path including file name and extension
 # output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_planet_oblate/lc_1_planet_oblate_circle.npy' 
-output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/lc/lc_BATMAN_R0.2152_ldc_0.5_0.05.npy'
-std_len_lc = 120 
+output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/lc/lc_1_21Feb2024_circles_38_38_px.npy'
+std_len_lc = 100 # 100 for lc directly out of 8bit # 120 for already appended lc 
 
 print('raw_lc_dir = ',raw_lc_dir)
 print('output_npy_lc_path = ',output_npy_lc_path)
