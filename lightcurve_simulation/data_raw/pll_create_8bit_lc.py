@@ -45,6 +45,10 @@ user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
 if user_input.lower() == "y":
     os.makedirs(save_lc_in_folder, exist_ok=True)
+    if save_time == True:
+        time_folder = save_lc_in_folder+"time/"
+        os.makedirs(time_folder, exist_ok=True)
+        print("Time array folder to be saved in: ", time_folder)    
     for i in np.arange(0,len(star2mega_ratio_array),1):
         lc = LcGenerator(shape_dir=shape_dir,
                         LD_Coeff = LD_Coeff,

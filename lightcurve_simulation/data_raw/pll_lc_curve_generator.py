@@ -82,7 +82,8 @@ class LcGenerator:
         print("lc"+str(self.star2mega_radius_ratio) +'_'+ str(name)+"saved")
 
         if self.save_time == True:
-            np.savetxt(str(self.folder_name) +'time_lc_'+ str(self.star2mega_radius_ratio)+'_'+str(name) + ".csv", time, delimiter=',')
+            time_folder = str(self.folder_name)+ 'time/'
+            np.savetxt(time_folder+'time_lc_'+ str(self.star2mega_radius_ratio)+'_'+str(name) + ".csv", time, delimiter=',')
             print('time_lc_'+str(self.star2mega_radius_ratio) +'_'+ str(name)+"saved")
 
     def __del__(self):
