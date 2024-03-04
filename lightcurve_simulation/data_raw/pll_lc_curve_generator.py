@@ -11,7 +11,7 @@ from EightBitTransit.misc import *
 import concurrent.futures
 
 class LcGenerator:
-    def __init__(self, shape_dir, LD_Coeff,save_lc_folder_name,star2mega_radius_ratio=4):
+    def __init__(self, shape_dir, LD_Coeff,save_lc_folder_name,star2mega_radius_ratio=4,save_time=False):
         self.shape_dir = shape_dir  # './generatedData/shape_dict.npy'
         self.y = np.load(self.shape_dir)
         self.y = self.y / np.amax(self.y)  # Normalizing images pixel value = [0,1]
@@ -22,6 +22,7 @@ class LcGenerator:
         self.pad_width_for_mega = int(self.radius_star - self.radius_mega)
         self.folder_name = save_lc_folder_name
         self.LD_Coeff = LD_Coeff
+        self.save_time = save_time
         print("LD_Coeff = ",self.LD_Coeff)
         #print('pad_width_for_mega = ', self.pad_width_for_mega)
         
@@ -77,10 +78,12 @@ class LcGenerator:
         # plt.title("Light curve",fontsize=16)
         # plt.show()
     def save_lc(self,lc,time,name):
-        
         np.savetxt(str(self.folder_name) +'lc_'+ str(self.star2mega_radius_ratio)+'_'+str(name) + ".csv", lc, delimiter=',')
-        # np.savetxt("./generatedData/lc/time/lctime0" + str(name) + ".csv", time, delimiter=',')
         print("lc"+str(self.star2mega_radius_ratio) +'_'+ str(name)+"saved")
+
+        if self.save_time == True:
+            np.savetxt(str(self.folder_name) +'time_lc_'+ str(self.star2mega_radius_ratio)+'_'+str(name) + ".csv", time, delimiter=',')
+            print('time_lc_'+str(self.star2mega_radius_ratio) +'_'+ str(name)+"saved")
 
     def __del__(self):
         print('Destructor called, lc deleted.')
