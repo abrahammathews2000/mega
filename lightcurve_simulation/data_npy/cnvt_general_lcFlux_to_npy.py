@@ -20,7 +20,7 @@ class SaveLcAsNpy:
         print('lcFlux_filenames = ', self.lcFlux_filenames)
         self.no_files = len(self.lcFlux_filenames)
         print('No. of files = length - lcFlux_filenames = ', self.no_files)
-        temp = np.loadtxt(self.lcFlux_dir+self.lcFlux_filenames[0], delimiter=',')
+        # temp = np.loadtxt(self.lcFlux_dir+self.lcFlux_filenames[0], delimiter=',')
         # temp_shape = np.array(np.shape(temp))
         # print("np.shape(t) = ",temp_shape[0])
         lc_dict = np.zeros((self.no_files,self.std_len_lc))
