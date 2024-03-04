@@ -32,10 +32,14 @@ LD_Coeff = [0.5,0.05]
 # Specifiy the size ratio between star and megastructure
 star2mega_ratio_array = np.array([4])
 
+# Do you want to save the time array? (True/False)
+save_time = True
+
 print('star2mega_ratio_array =' ,star2mega_ratio_array)
 print("LD_Coeff = ",LD_Coeff)
 print("shape_dir = ",shape_dir)
 print("save_lc_in_folder = ",save_lc_in_folder)
+print("Do you want to save the time array?", save_time)
 
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
@@ -46,7 +50,7 @@ if user_input.lower() == "y":
                         LD_Coeff = LD_Coeff,
                         save_lc_folder_name=save_lc_in_folder,
                         star2mega_radius_ratio=star2mega_ratio_array[i],                     
-                        save_time=True)
+                        save_time=save_time)
         del lc
 else:
     print("Exiting the program.")
