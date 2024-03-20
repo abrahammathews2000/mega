@@ -55,3 +55,5 @@ Lightcurves
 17. data/test/npy/lc/lc_17_shape_1.npy |  (1) done (2) done
     LDCs=[0.62,0.15] | 
     star2mega_ratio_array = 4 | (250,100)
+18. data/test/npy/lc/test_lc_1_to_9.npy
+    concatenation of all lcs from serial no. 1 to 9 descirbed above.
