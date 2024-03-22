@@ -58,7 +58,7 @@ class LcGenerator:
             b = np.random.default_rng().uniform(low = LD_Coeff_dist_start[1],high = LD_Coeff_dist_stop[1],size = len(self.y)) # np.ones(5)*0.6 #
             LD_Coeff = np.array([a,b]).T
             np.savetxt("/scratch/abraham/Documents/mega_git/mega/data/train/info/lc_10_shape_multisize_multiLDC_details/LDC_details/LDCs_"+str(batch)+".csv", 
-                       star2mega_radius_ratio, delimiter=',')
+                       LD_Coeff, delimiter=',')
             print("LDC details save in: ")
             print("/scratch/abraham/Documents/mega_git/mega/data/train/info/lc_10_shape_multisize_multiLDC_details/LDC_details/LDCs_"+str(batch)+".csv")
     
