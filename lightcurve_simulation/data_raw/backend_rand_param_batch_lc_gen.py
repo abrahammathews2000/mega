@@ -62,7 +62,7 @@ class LcGenerator:
             print("LDC details save in: ")
             print("/scratch/abraham/Documents/mega_git/mega/data/train/info/lc_10_shape_multisize_multiLDC_details/LDC_details/LDCs_"+str(batch)+".csv")
     
-            with concurrent.futures.ProcessPoolExecutor(max_workers=30) as executor:
+            with concurrent.futures.ProcessPoolExecutor(max_workers=20) as executor:
                 results = [executor.submit(self.gen_lc,temp_shape=self.y[i],name=str(batch)+'_'+str(i),LD_Coeff=LD_Coeff[i],star2mega_radius_ratio=star2mega_radius_ratio[i]) for i in np.arange(len(self.y))]
 
                 num_workers = executor._max_workers
@@ -70,8 +70,6 @@ class LcGenerator:
                 
                 for f in concurrent.futures.as_completed(results):
                     print(f.result())
-
-            break  
                 
             #---
     def gen_lc(self, temp_shape,name,LD_Coeff,star2mega_radius_ratio):

@@ -20,7 +20,7 @@ save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/
 print("Which shapes do you need to simulate to get the lcs? \n ",shape_dir)
 print("Where do you want to save the lcs? \n ",save_lc_in_folder)
 
-print("LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],","\n",
+print("LD_Coeff_dist_start = [0.1,0.0], LD_Coeff_dist_stop = [0.9,0.2],","\n",
                     "star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20")
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
@@ -28,7 +28,7 @@ if user_input.lower() == "y":
     print("Running the program...")
     os.makedirs(save_lc_in_folder, exist_ok=True)
     lc = LcGenerator(shape_dir = shape_dir, save_lc_folder_name = save_lc_in_folder,
-                    LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
+                    LD_Coeff_dist_start = [0.1,0.0], LD_Coeff_dist_stop = [0.9,0.2],
                     star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20)
     del lc
 else:
