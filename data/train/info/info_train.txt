@@ -31,3 +31,11 @@ Lightcurves
 9. data/train/npy/lc/lc_9_shape_5.npy | (1) done (2) done
     | LDCs=[0.4,0.05] 
     | star2mega_ratio_array = 4
+
+10. data/train/npy/lc/train_lc_1_to_9.npy
+    Concatenation of light curve from S.No. 1 to 9
+
+11. lc_10_shape_multisize_multiLDC/
+data/train/npy/lc/lc_10_shape_multisize_multiLDC.npy | (1) done (2) not done
+LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
+star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20
