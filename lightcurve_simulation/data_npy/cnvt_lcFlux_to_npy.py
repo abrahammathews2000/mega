@@ -35,7 +35,7 @@ class SaveLcAsNpy:
         
         np.save(self.name_npy_file, lc_dict)
         lc_dict_read = np.load(self.name_npy_file)
-        print('lc_dict = ', lc_dict_read)
+        # print('lc_dict = ', lc_dict_read)
         print('lc_dict = ', lc_dict_read.shape)
         print('All the LC are converted into single npy file')
 
@@ -67,15 +67,17 @@ class SaveLcAsNpy:
 
 
 # What is the folder path for the input raw light curves?
-raw_lc_dir = '../../data/test/raw/lc/lc_17_shape_1/' # Test
+# raw_lc_dir = '../../data/test/raw/lc/lc_17_shape_1/' # Test
 # raw_lc_dir = '../../data/vald/raw/lc/lc_9_shape_1/' # Validation
 # raw_lc_dir = '../../data/train/raw/lc/lc_9_shape_5/' # Train
+raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_10_shape_multisize_multiLDC/'
 
 # Where do you want to save the output npy light curves file?
 # Include the full path including file name
-output_npy_lc_path = '../../data/test/npy/lc/lc_17_shape_1.npy' # Test
+# output_npy_lc_path = '../../data/test/npy/lc/lc_17_shape_1.npy' # Test
 # output_npy_lc_path = '../../data/vald/npy/lc/lc_9_shape_1.npy' # Validation
 # output_npy_lc_path = '../../data/train/npy/lc/lc_9_shape_5.npy'# Train
+output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_10_shape_multisize_multiLDC.npy'
 
 print('raw_lc_dir = ',raw_lc_dir)
 print('output_npy_lc_path = ',output_npy_lc_path)
@@ -86,7 +88,7 @@ if user_input.lower() == "y":
     print("Running the code...")
     t = SaveLcAsNpy(raw_lc_dir=raw_lc_dir,output_npy_lc_path=output_npy_lc_path)
     del t
-else :
+else:
     print("Exiting the program.")
 toc = time.perf_counter()
 print(toc-tic, " s")
