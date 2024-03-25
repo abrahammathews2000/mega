@@ -14,4 +14,4 @@ hello/
 __pycache__/
 data/random/
 lightcurve_simulation/data_npy/batman_R0.2152_ldc_0.5_0.05.csv
-/scratch/abraham/Documents/mega_git/mega/data/train/info/lc_10_shape_multisize_multiLDC_details/
+data/train/info/lc_10_shape_multisize_multiLDC_details/
