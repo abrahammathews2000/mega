@@ -24,3 +24,15 @@ Use the code: lightcurve_simulation/data_raw/cnvt_rgb_to_gray.py
 
 4. lightcurve_simulation/data_raw/plot_circle.ipynb
 - to plot circles with different size within 38 x 38 pixel
+
+5.
+mega/lightcurve_simulation/data_raw/frontend_rand_param_batch_lc_gen.py
+Dependent code: mega/lightcurve_simulation/data_raw/backend_rand_param_batch_lc_gen.py
+
+This code is used to simulate the transit lightcurve for uniform distribution of parameters of LDCs and star2mega_radius_ratio_stop. This for the training set, where input shapes are divided into batches.
+
+6. 
+mega/lightcurve_simulation/data_raw/frontend_rand_param_lc_gen.py
+Dependent code: mega/lightcurve_simulation/data_raw/backend_rand_param_lc_gen.py
+
+This code is used to simulate the transit lightcurve for uniform distribution of parameters of LDCs and star2mega_radius_ratio_stop. This for the validation set and test, where input shapes in single npy file
