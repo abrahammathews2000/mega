@@ -1,0 +1,21 @@
+Log for creating lightcurves for: 
+    data/vald/npy/shape/shape_1.npy   Vald <-- change this in code
+    (1000  shapes - [ (1000,100)]--> Confirm from lc simulated)
+With following property
+    lc_file_name: data/vald/npy/lc/lc_10_shape_multisize_multiLDC.npy <-- change this in code
+
+With following property:
+LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
+star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20
+
+1. Create light curve 
+(/scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/data_raw/frontend_rand_param_lc_gen.py) - y
+Trying with 20 workers
+Dependent_code = /scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/data_raw/backend_rand_param_lc_gen.py
+
+380.67 s
+ 
+
+2. Create light curve as npy file 
+(lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - y
+0.406 s
