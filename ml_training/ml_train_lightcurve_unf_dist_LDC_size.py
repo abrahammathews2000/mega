@@ -1,3 +1,9 @@
+# .py code help to run the code in screen mode .ipynb cannot do that
+# This code can be used to load light curve training dataset and do the
+# preprocessing like vertical scaling and extending the light curve
+# CNN Model is defined
+# Training, learning rate scheduler and early stopping feature included
+
 # Import TF and check for GPU
 
 import tensorflow as tf

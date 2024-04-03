@@ -1,3 +1,13 @@
+# .py code for mega/ml_training/ml_inference_lc2shape.ipynb
+# This code is used to infer transit shape from input light curve.
+# It involves following steps:
+# 1. Load ML model
+# 2. Load input data - i.e. the light curves
+# 3. Predict the shapes from the light curves
+
+# 4. Load True Output (if any)
+
+
 # Import TF and check for GPU
 
 import tensorflow as tf
