@@ -21,4 +21,5 @@ Use the code: lightcurve_simulation/data_npy/cnvt_general_shape_to_npy.py
     - Plot 3 shapes and their lightcurves single LDCs (overlap)
     - To plot the difference between two lightcurves
     - Save any new plots as csv
+    - plot exocomet lightcurve
 Use the code:lightcurve_simulation/data_npy/plot_lc.ipynb
