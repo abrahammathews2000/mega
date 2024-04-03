@@ -202,7 +202,9 @@ print("Learning rate scheduler defined")
 # Training 
 print("Training will start now")
 # history = model.fit(train_lc_scaled_interpol, train_shape, epochs=200,verbose=2, validation_data=(vald_lc_scaled_interpol,vald_shape),callbacks=[es,lr_sched])
-history = model.fit(train_dataset, epochs=200,verbose=2, validation_data=vald_dataset,callbacks=[es,lr_sched])
+no_epochs = int(200)
+print("no_epochs = ",no_epochs)
+history = model.fit(train_dataset, epochs=no_epochs,verbose=2, validation_data=vald_dataset,callbacks=[es,lr_sched])
 
 # Save Model (Uncomment onlt if you are really running this)
 save_model(model, "/scratch/abraham/Documents/mega_git/mega/ml_model/mar26_2024_model/mar26_2024_model_unfDist_LDC_size.h5")
