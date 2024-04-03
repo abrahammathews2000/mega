@@ -70,14 +70,14 @@ class SaveLcAsNpy:
 # raw_lc_dir = '../../data/test/raw/lc/lc_17_shape_1/' # Test
 # raw_lc_dir = '../../data/vald/raw/lc/lc_9_shape_1/' # Validation
 # raw_lc_dir = '../../data/train/raw/lc/lc_9_shape_5/' # Train
-raw_lc_dir = ' '
+raw_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_1_multisize_multiLDC/'
 
 # Where do you want to save the output npy light curves file?
 # Include the full path including file name
 # output_npy_lc_path = '../../data/test/npy/lc/lc_17_shape_1.npy' # Test
 # output_npy_lc_path = '../../data/vald/npy/lc/lc_9_shape_1.npy' # Validation
 # output_npy_lc_path = '../../data/train/npy/lc/lc_9_shape_5.npy'# Train
-output_npy_lc_path = ' '
+output_npy_lc_path = '/scratch/abraham/Documents/mega_git/mega/data/test/npy/lc/lc_shape_1_multisize_multiLDC.npy'
 
 print('raw_lc_dir = ',raw_lc_dir)
 print('output_npy_lc_path = ',output_npy_lc_path)

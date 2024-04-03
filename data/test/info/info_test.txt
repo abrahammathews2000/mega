@@ -58,6 +58,6 @@ Lightcurves
 18. data/test/npy/lc/test_lc_1_to_9.npy
     concatenation of all lcs from serial no. 1 to 9 descirbed above.
 19. data/test/raw/lc/lc_shape_1_multisize_multiLDC/
-    data/test/npy/lc/lc_shape_1_multisize_multiLDC.npy | (1) not done (2) not done
+    data/test/npy/lc/lc_shape_1_multisize_multiLDC.npy | (1) done (2) not done
     LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
     star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20

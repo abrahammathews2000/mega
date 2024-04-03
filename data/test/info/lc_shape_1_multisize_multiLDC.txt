@@ -7,11 +7,11 @@ With following property
     star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20
 
 1. Create light curve 
-(/scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/data_raw/frontend_rand_param_lc_gen.py) - n
+(/scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/data_raw/frontend_rand_param_lc_gen.py) - y
 Trying with 20 workers
 Dependent_code = /scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/data_raw/backend_rand_param_lc_gen.py
 
-s
+101.87 s
  
 
 2. Create light curve as npy file 
