@@ -17,4 +17,4 @@ Dependent_code = /scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/
 2. Create light curve as npy file 
 (lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - n
 
-s
+0.109 s
