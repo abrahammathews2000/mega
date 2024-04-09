@@ -29,6 +29,10 @@ from scipy.interpolate import interp1d
 ## Load Train Set
 train_shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_5.npy'
 train_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_10_shape_multisize_multiLDC.npy'
+
+print(f"train_shape_dir = {train_shape_dir}")
+print(f"train_lc_dir = {train_lc_dir}")
+
 train_lc = np.load(train_lc_dir)
 train_shape = np.load(train_shape_dir)
 # Check equality of number of dataset
@@ -42,6 +46,10 @@ else:
 ## Load Validation Set
 vald_shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/vald/npy/shape/shape_1.npy'
 vald_lc_dir = '/scratch/abraham/Documents/mega_git/mega/data/vald/npy/lc/lc_10_shape_multisize_multiLDC.npy'
+
+print(f"vald_shape_dir = {vald_shape_dir}")
+print(f"vald_lc_dir = {vald_lc_dir}")
+
 vald_lc = np.load(vald_lc_dir)
 vald_shape = np.load(vald_shape_dir)
 # Check equality of nuftmber of dataset
@@ -68,7 +76,7 @@ vald_shape[vald_shape_where_0] = 1  # 1 represent the shape (1 opacity)
 vald_shape[vald_shape_where_1] = 0  # 0 represent background (0 opacity)
 print("Normalized the shape")
 
-# 3. Normalize the lightcurves
+# 3. Vertically Scaling
 ## - Train Set
 train_lc_scaled = np.zeros(train_lc.shape)
 for i in np.arange(len(train_lc_scaled)):
@@ -78,25 +86,94 @@ for i in np.arange(len(train_lc_scaled)):
 vald_lc_scaled = np.zeros(vald_lc.shape)
 for i in np.arange(len(vald_lc_scaled)):
     vald_lc_scaled[i] = (vald_lc[i] - np.amin(vald_lc[i]))/(np.amax(vald_lc[i]) - np.amin(vald_lc[i]))
-print("Normalized the light curves")
+print("Vertically Scaled the light curves")
 
 
 # Add flat line towards left and right of dip
 # 10 data points on each side
 # 4. Extend the lightcurves
 ## - Train Set
-train_lc_scaled_append = np.ones((train_lc.shape[0],120))
+train_lc_scaled_append = np.ones((train_lc.shape[0],150))
 print('train_lc_scaled_append.shape = ',train_lc_scaled_append.shape)
-print("len(train_lc_scaled_append[0,10:110]) = ",len(train_lc_scaled_append[0,10:110]))
+print("len(train_lc_scaled_append[0,25:125]) = ",len(train_lc_scaled_append[0,25:125]))
 
 for i in np.arange(len(train_lc_scaled)):
-    train_lc_scaled_append[i,10:110] = train_lc_scaled[i]
+    train_lc_scaled_append[i,25:125] = train_lc_scaled[i]
 
 ## - Vald Set
-vald_lc_scaled_append = np.ones((vald_lc.shape[0],120))
+vald_lc_scaled_append = np.ones((vald_lc.shape[0],150))
 for i in np.arange(len(vald_lc_scaled)):
-    vald_lc_scaled_append[i,10:110] = vald_lc_scaled[i]
+    vald_lc_scaled_append[i,25:125] = vald_lc_scaled[i]
 print("Extended the light curves")
+
+del vald_lc
+del train_lc
+
+# 5. Horizontal scaling
+def scale_horizontally(input_lc_dataset):
+    # lc_np_array_offset_mask used to select the flat part by certain percentage
+    input_lc_dataset_mask = np.copy(input_lc_dataset)
+
+    for iteration in np.arange(len(input_lc_dataset)):
+        # 0.988 is working good | lower it and see changes # 0.96 - 0.97 -better # 0.95 -worse
+        input_lc_dataset_mask[iteration][(input_lc_dataset[iteration]>=0.98)] = 1.0
+        input_lc_dataset_mask[iteration][(input_lc_dataset[iteration]<0.98)] = 0.0
+
+    print("Length of one LC = ", len(input_lc_dataset_mask[0]))
+
+    count_zeros_array = np.zeros((len(input_lc_dataset_mask),))
+    for iteration in np.arange(len(input_lc_dataset_mask)):
+        # Calculate the number of occurrences of '0'
+        count_zeros = np.count_nonzero(input_lc_dataset_mask[iteration] == 0)
+        count_zeros_array[iteration] = count_zeros
+    
+    # Interpolate the light curve
+    input_lc_dataset_interpol = np.zeros((len(input_lc_dataset), 120))
+    len_selected_portion = np.zeros(len(input_lc_dataset))
+    print("input_lc_dataset_interpol.shape =", input_lc_dataset_interpol.shape)
+
+    center_index = int(len(input_lc_dataset[0])/2)
+    print("center_index =", center_index)
+
+    for iteration in np.arange(len(input_lc_dataset_interpol)):
+
+        left_index = int(center_index - int(count_zeros_array[iteration]/2) - int(count_zeros_array[iteration]/6))
+        right_index = int(center_index + int(count_zeros_array[iteration]/2) + int(count_zeros_array[iteration]/6))
+        selected_portion = input_lc_dataset[iteration][left_index:right_index]
+        print("left_index =", left_index)
+        print("right_index =", right_index)
+
+        # Calculate the length of the selected region
+        len_selected_portion[iteration] = len(selected_portion)
+
+        # Interpolate the selected portion
+        # Original data
+        original_x = np.linspace(-1, 1, num=len(selected_portion))
+        original_y = selected_portion
+
+        # Create a quadratic interpolation function
+        f = interp1d(original_x, original_y, kind='quadratic')
+
+        # Define the range of x-values for the interpolation with 120 elements
+        x_interpolation = np.linspace(-1, 1, num=120)
+
+        # Perform the interpolation
+        y_interpolated = f(x_interpolation)
+        input_lc_dataset_interpol[iteration] = y_interpolated
+
+    return input_lc_dataset_interpol
+
+train_lc_horiz_scaled = scale_horizontally(train_lc_scaled_append)
+vald_lc_horiz_scaled = scale_horizontally(vald_lc_scaled_append)
+
+del train_lc_scaled_append
+del vald_lc_scaled_append
+
+processed_train_lc = train_lc_horiz_scaled
+processed_vald_lc = vald_lc_horiz_scaled
+
+del train_lc_horiz_scaled
+del vald_lc_horiz_scaled
 
 
 # Verification
@@ -109,28 +186,63 @@ fig,ax=plt.subplots(num,2, figsize=(4,3), gridspec_kw={ 'width_ratios': [2,1],
 ax[0][1].set_title('Shape',size=15)
 ax[0][0].set_title('Light Curve (Train Dataset)',size=15)
 ax[num-1][0].set_xlabel('Phase',size=13)
-ph = np.linspace(-1,1,len(train_lc_scaled_append[0]))
+ph = np.linspace(-1,1,len(processed_train_lc[0]))
 # advance = 60
 
 i = 0
 for i in np.arange(0,num):
-    k = np.random.randint(0, len(train_lc_scaled_append)-1)
+    k = np.random.randint(0, len(processed_train_lc)-1)
     ax[i][1].tick_params(left = False, right = False , labelleft = False ,labelbottom = False, bottom = False)
     if(i<num-1): ax[i][0].tick_params(labelbottom = False, bottom = False)
     img = ax[i][1].imshow(train_shape[k],cmap='inferno')
     plt.colorbar(img)
     ax[i][0].set_ylabel('Flux',size=13)
     ax[i][0].set_ylim(-0.5,1.5)
-#     ax[i][0].scatter(ph, vald_lc_scaled_append[k],color = 'black',marker='.')
-    ax[i][0].plot(ph, train_lc_scaled_append[k],color = 'tab:red',linewidth='2')
+    # ax[i][0].scatter(ph, vald_lc_scaled_append[k],color = 'black',marker='.')
+    ax[i][0].plot(ph, processed_train_lc[k],color = 'tab:red',linewidth='2')
     ax[i][0].grid('on')
     i = i + 1
-plt.savefig('/scratch/abraham/Documents/mega_git/mega/ml_model/mar26_2024_model/plot_train_lc.png')
+plt.savefig('/scratch/abraham/Documents/mega_git/mega/ml_model/april9_2024_model/plot_train_lc.png')
 plt.close()
 
-# ML Pipeline
+# Plot - Vald LCs
+plt.clf()
+num = 3
+fig,ax=plt.subplots(num,2, figsize=(4,3), gridspec_kw={ 'width_ratios': [2,1],
+        'wspace': 0.2,'hspace': 0.4})
+
+ax[0][1].set_title('Shape',size=15)
+ax[0][0].set_title('Light Curve (Vald Dataset)',size=15)
+ax[num-1][0].set_xlabel('Phase',size=13)
+ph = np.linspace(-1,1,len(processed_vald_lc[0]))
+
+i = 0
+for i in np.arange(0,num):
+    k = np.random.randint(0, len(processed_vald_lc)-1)
+    ax[i][1].tick_params(left = False, right = False , labelleft = False ,labelbottom = False, bottom = False)
+    if(i<num-1): ax[i][0].tick_params(labelbottom = False, bottom = False)
+    img = ax[i][1].imshow(vald_shape[k],cmap='inferno')
+    plt.colorbar(img)
+    ax[i][0].set_ylabel('Flux',size=13)
+    ax[i][0].set_ylim(-0.5,1.5)
+    # ax[i][0].scatter(ph, vald_lc_scaled_append[k],color = 'black',marker='.')
+    ax[i][0].plot(ph, processed_vald_lc[k],color = 'tab:red',linewidth='2')
+    ax[i][0].grid('on')
+    i = i + 1
+plt.savefig('/scratch/abraham/Documents/mega_git/mega/ml_model/april9_2024_model/plot_vald_lc.png')
+plt.close()
+
+model_save_path = "/scratch/abraham/Documents/mega_git/mega/ml_model/april9_2024_model/april9_2024_model_unfDist_LDC_size_horz_scale.h5"
+print(f"model_save_path = {model_save_path}")
+
+user_input = input("Do you want to run the code? (y/n): ")
+if user_input.lower() != "y":
+    sys.exit("EXIT: User declined to continue the program")
+
+print("Creating ML Pipeline")
+# 6. ML Pipeline
 ## Train Set
-train_dataset = tf.data.Dataset.from_tensor_slices((train_lc_scaled_append,train_shape))
+train_dataset = tf.data.Dataset.from_tensor_slices((processed_train_lc, train_shape))
 train_dataset = train_dataset.cache()
 train_dataset = train_dataset.shuffle(len(train_dataset))
 train_dataset = train_dataset.batch(100)
@@ -138,14 +250,14 @@ train_dataset = train_dataset.prefetch(tf.data.AUTOTUNE)
 print(train_dataset)
 
 ## Vald Set
-vald_dataset = tf.data.Dataset.from_tensor_slices((vald_lc_scaled_append,vald_shape))
+vald_dataset = tf.data.Dataset.from_tensor_slices((processed_vald_lc, vald_shape))
 vald_dataset = vald_dataset.batch(100)
 vald_dataset = vald_dataset.cache()
 vald_dataset = vald_dataset.prefetch(tf.data.AUTOTUNE)
 print(vald_dataset)
 
 # CNN Model
-input_shape = np.array(np.shape(train_lc_scaled_append[0]))
+input_shape = np.array(np.shape(processed_train_lc[0]))
 print("np.shape(input_shape) = ",input_shape[0])
 
 output_shape = np.array(np.shape(train_shape[0]))
@@ -210,16 +322,13 @@ print("Learning rate scheduler defined")
 # Training 
 print("Training will start now")
 # history = model.fit(train_lc_scaled_interpol, train_shape, epochs=200,verbose=2, validation_data=(vald_lc_scaled_interpol,vald_shape),callbacks=[es,lr_sched])
-no_epochs = int(200)
+no_epochs = int(3) # For testing start with small value of 3 or 5
 print("no_epochs = ",no_epochs)
 history = model.fit(train_dataset, epochs=no_epochs,verbose=2, validation_data=vald_dataset,callbacks=[es,lr_sched])
 
 # Save Model (Uncomment onlt if you are really running this)
-# save_model(model, "/scratch/abraham/Documents/mega_git/mega/ml_model/mar26_2024_model/mar26_2024_model_unfDist_LDC_size.h5")
-# print("Model saved")
-
-
-
+save_model(model,str(model_save_path))
+print("Model saved")
 
 
 tf.keras.backend.clear_session()
