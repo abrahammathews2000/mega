@@ -4,6 +4,8 @@
 # CNN Model is defined
 # Training, learning rate scheduler and early stopping feature included
 
+## -- IMP: Check whether the file name to save the model is complete ##
+
 # Import TF and check for GPU
 
 import tensorflow as tf
@@ -213,8 +215,8 @@ print("no_epochs = ",no_epochs)
 history = model.fit(train_dataset, epochs=no_epochs,verbose=2, validation_data=vald_dataset,callbacks=[es,lr_sched])
 
 # Save Model (Uncomment onlt if you are really running this)
-save_model(model, "/scratch/abraham/Documents/mega_git/mega/ml_model/mar26_2024_model/mar26_2024_model_unfDist_LDC_size.h5")
-print("Model saved")
+# save_model(model, "/scratch/abraham/Documents/mega_git/mega/ml_model/mar26_2024_model/mar26_2024_model_unfDist_LDC_size.h5")
+# print("Model saved")
 
 
 
