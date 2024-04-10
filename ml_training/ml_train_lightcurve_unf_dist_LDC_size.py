@@ -108,6 +108,8 @@ print("Extended the light curves")
 
 del vald_lc
 del train_lc
+del vald_lc_scaled
+del train_lc_scaled
 
 # 5. Horizontal scaling
 def scale_horizontally(input_lc_dataset):
@@ -140,8 +142,8 @@ def scale_horizontally(input_lc_dataset):
         left_index = int(center_index - int(count_zeros_array[iteration]/2) - int(count_zeros_array[iteration]/6))
         right_index = int(center_index + int(count_zeros_array[iteration]/2) + int(count_zeros_array[iteration]/6))
         selected_portion = input_lc_dataset[iteration][left_index:right_index]
-        print("left_index =", left_index)
-        print("right_index =", right_index)
+        # print("left_index =", left_index)
+        # print("right_index =", right_index)
 
         # Calculate the length of the selected region
         len_selected_portion[iteration] = len(selected_portion)
@@ -175,6 +177,8 @@ processed_vald_lc = vald_lc_horiz_scaled
 del train_lc_horiz_scaled
 del vald_lc_horiz_scaled
 
+print(f"processed_train_lc = {processed_train_lc}")
+print(f"processed_vald_lc = {processed_vald_lc}")
 
 # Verification
 # Plot - Train LCs
@@ -232,8 +236,12 @@ for i in np.arange(0,num):
 plt.savefig('/scratch/abraham/Documents/mega_git/mega/ml_model/april9_2024_model/plot_vald_lc.png')
 plt.close()
 
+# Model path to be saved to
 model_save_path = "/scratch/abraham/Documents/mega_git/mega/ml_model/april9_2024_model/april9_2024_model_unfDist_LDC_size_horz_scale.h5"
 print(f"model_save_path = {model_save_path}")
+
+no_epochs = int(200) # For testing start with small value of 3 or 5
+print("no_epochs =",no_epochs)
 
 user_input = input("Do you want to run the code? (y/n): ")
 if user_input.lower() != "y":
@@ -321,12 +329,10 @@ print("Learning rate scheduler defined")
 
 # Training 
 print("Training will start now")
-# history = model.fit(train_lc_scaled_interpol, train_shape, epochs=200,verbose=2, validation_data=(vald_lc_scaled_interpol,vald_shape),callbacks=[es,lr_sched])
-no_epochs = int(3) # For testing start with small value of 3 or 5
-print("no_epochs = ",no_epochs)
+
 history = model.fit(train_dataset, epochs=no_epochs,verbose=2, validation_data=vald_dataset,callbacks=[es,lr_sched])
 
-# Save Model (Uncomment onlt if you are really running this)
+# Save Model
 save_model(model,str(model_save_path))
 print("Model saved")
 
