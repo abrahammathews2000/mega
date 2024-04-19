@@ -9,14 +9,17 @@ from backend_rand_param_lc_gen import LcGenerator
 import os
 import time
 
-# Where do you want to save the lcs?
+# 1. change the path to saved LDC and size info in the backend code
+# Here: /scratch/abraham/Documents/mega_git/mega/lightcurve_simulation/data_raw/backend_rand_param_lc_gen.py
+
+# 2. Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_1_multisize_multiLDC/'
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_1_multisize_multiLDC_2/'
 # save_lc_in_folder = '../../data/test/raw/lc/lc_17_shape_1/' # For Test
 # save_lc_in_folder = '../../data/vald/raw/lc/lc_9_shape_1/' # For Validation
 #
 
-# Which shapes do you need to simulate to get the lcs?
+# 3. Which shapes do you need to simulate to get the lcs?
 # Give the npy file path for the shape
 # shape_dir = 
 shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/test/npy/shape/shape_1.npy' # For Test

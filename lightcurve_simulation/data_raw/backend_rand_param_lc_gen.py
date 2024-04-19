@@ -33,14 +33,20 @@ class LcGenerator:
         
         # Make the relative radius as uniform distribution
         star2mega_radius_ratio = rng.integers(low = star2mega_radius_ratio_start, high=star2mega_radius_ratio_stop, size=len(self.y))
-
+        np.savetxt("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/star2megaRadius.csv", 
+                    star2mega_radius_ratio, delimiter=',')
+        print("star2mega_radius_ratio details save in: ")
+        print("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/star2megaRadius.csv")
+    
         # Make the LDCs  as uniform distribution
         a = np.random.default_rng().uniform(low = LD_Coeff_dist_start[0],high = LD_Coeff_dist_stop[0],size = len(self.y)) # np.ones(5)*0.3 # 
         b = np.random.default_rng().uniform(low = LD_Coeff_dist_start[1],high = LD_Coeff_dist_stop[1],size = len(self.y)) # np.ones(5)*0.6 #
         LD_Coeff = np.array([a,b]).T
 
-     
-
+        np.savetxt("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/LDCs.csv", 
+                    LD_Coeff, delimiter=',')
+        print("LDC details save in: ")
+        print("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/LDCs.csv")
 
         # Testing on GPU
         # for i in np.arange(len(self.y)):
