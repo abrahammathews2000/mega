@@ -1,7 +1,7 @@
 Log for creating lightcurves for: 
     (132136 shapes - []--> Confirm from lc simulated)
 shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_filled5_batches/' # For Train
-save_lc_in_folder = '../../data/train/raw/lc/lc_10_shape_multisize_multiLDC/' # For Train
+save_lc_in_folder = '../../data/train/raw/lc/lc_10_shape_5_multisize_multiLDC/' # For Train
 
 With following property:
 LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
