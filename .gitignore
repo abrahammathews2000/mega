@@ -14,4 +14,5 @@ hello/
 __pycache__/
 data/random/
 lightcurve_simulation/data_npy/batman_R0.2152_ldc_0.5_0.05.csv
-data/train/info/lc_10_shape_multisize_multiLDC_details/
+data/train/info/lc_10_shape_5_multisize_multiLDC_details/
+data/test/info/lc_shape_1_multisize_multiLDC_2_details/
