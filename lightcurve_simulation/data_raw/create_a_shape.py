@@ -4,7 +4,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from bezier import get_random_points,get_bezier_curve
+from bezier import get_random_points, get_bezier_curve
 import cv2
 
 class ShapeGen:
