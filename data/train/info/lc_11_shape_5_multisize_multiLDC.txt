@@ -5,7 +5,7 @@ save_lc_in_folder = '../../data/train/raw/lc/lc_11_shape_5_multisize_multiLDC/' 
 
 With following property:
     lc = LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,
-                    LD_Coeff_dist_start=[0, -0.15], LD_Coeff_dist_stop=[1, 0.55],
+                    LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],
                     star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=350)
 
 1. Create light curve 

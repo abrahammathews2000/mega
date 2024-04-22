@@ -21,7 +21,7 @@ print("Which shapes do you need to simulate to get the lcs? \n ",shape_dir)
 print("Where do you want to save the lcs? \n ",save_lc_in_folder)
 
 print("LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,", "\n",
-                    "LD_Coeff_dist_start=[0, -0.15], LD_Coeff_dist_stop=[1, 0.55],", "\n",
+                    "LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],", "\n",
                     "star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=350)")
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
@@ -29,7 +29,7 @@ if user_input.lower() == "y":
     print("Running the program...")
     os.makedirs(save_lc_in_folder, exist_ok=True)
     lc = LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,
-                    LD_Coeff_dist_start=[0, -0.15], LD_Coeff_dist_stop=[1, 0.55],
+                    LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],
                     star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=350)
     del lc
 else:
