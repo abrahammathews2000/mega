@@ -44,7 +44,7 @@ Lightcurves
 4074 shapes created
 
 13 lc_11_shape_5_multisize_multiLDC/
-!! Run cancelled :|
+!! Run cancelled (:|)
 ((1) not done (2) not done)
 lc = LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,
                     LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],

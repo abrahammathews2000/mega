@@ -20,17 +20,27 @@ save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/
 print("Which shapes do you need to simulate to get the lcs? \n ",shape_dir)
 print("Where do you want to save the lcs? \n ",save_lc_in_folder)
 
-print("LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,", "\n",
-                    "LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],", "\n",
-                    "star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=30)")
+
+LD_Coeff_dist_start = [0, 0]
+LD_Coeff_dist_stop = [1, 0.55]
+star2mega_radius_ratio_start = 2
+star2mega_radius_ratio_stop = 30
+print("LD_Coeff_dist_start=", LD_Coeff_dist_start)
+print("LD_Coeff_dist_stop=", LD_Coeff_dist_stop)
+print("star2mega_radius_ratio_start=", star2mega_radius_ratio_start)
+print("star2mega_radius_ratio_stop=", star2mega_radius_ratio_stop)
+
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
 if user_input.lower() == "y":
     print("Running the program...")
     os.makedirs(save_lc_in_folder, exist_ok=True)
-    lc = LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,
-                    LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],
-                    star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=30)
+    lc = LcGenerator(shape_dir=shape_dir, 
+                     save_lc_folder_name=save_lc_in_folder,
+                     LD_Coeff_dist_start=LD_Coeff_dist_start,
+                     LD_Coeff_dist_stop=LD_Coeff_dist_stop,
+                     star2mega_radius_ratio_start=star2mega_radius_ratio_start,
+                     star2mega_radius_ratio_stop=star2mega_radius_ratio_stop)
     del lc
 else:
     print("Exiting the program.")
