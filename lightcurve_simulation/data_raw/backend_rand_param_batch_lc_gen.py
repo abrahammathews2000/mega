@@ -17,7 +17,7 @@ import concurrent.futures
 class LcGenerator:
     def __init__(self, shape_dir, save_lc_folder_name, 
                  LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],
-                 star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=350):
+                 star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=30):
         rng = np.random.default_rng()
         self.save_lc_folder_name = save_lc_folder_name
         self.shape_dir = shape_dir  
