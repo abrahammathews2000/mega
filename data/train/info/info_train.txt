@@ -63,11 +63,13 @@ shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape
 save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_12_shape_5_multisize_multiLDC/' # For Train
 save_lc_npy = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_12_shape_5_multisize_multiLDC.npy'
 
-15. Concatenation of 
+15. Concatenation of (done)
     (a) lc_10_shape_5_multisize_multiLDC.npy
     (b) lc_12_shape_5_multisize_multiLDC.npy
-
+    Code: mega/lightcurve_simulation/data_npy/combine_all_lc.py
     Output: /scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/concatenated_lc/concat_lc_10_12_shape_5_multisize_multiLDC.npy
 
-    /scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/concatenated_shape/train_shape_5_2times.npy
-    - Concatenation of shape_5 two times
+    Concatenation of shape_5 two times (done)
+    Code: mega/lightcurve_simulation/data_npy/combine_all_shapes.py
+    Output: /scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/concatenated_shape/train_shape_5_2times.npy
+    
