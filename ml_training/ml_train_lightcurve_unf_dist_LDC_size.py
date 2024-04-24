@@ -203,12 +203,6 @@ for i in np.arange(len(vald_lc_horiz_scaled)):
 processed_train_lc = train_lc_horiz_scaled_noise
 processed_vald_lc = vald_lc_horiz_scaled_noise
 
-del train_lc_horiz_scaled
-del vald_lc_horiz_scaled
-
-del train_lc_horiz_scaled_noise
-del vald_lc_horiz_scaled_noise
-
 print(f"processed_train_lc = {processed_train_lc}")
 print(f"processed_vald_lc = {processed_vald_lc}")
 
@@ -218,7 +212,7 @@ plt.clf()
 num = 3
 fig,ax=plt.subplots(num,
                     2, 
-                    figsize=(4,3), 
+                    figsize=(6,5), 
                     gridspec_kw={'width_ratios': [2,1], 'wspace': 0.2, 'hspace': 0.4}
 )
 
@@ -235,11 +229,11 @@ for i in np.arange(0, num):
     img = ax[i][1].imshow(train_shape[k], cmap='inferno')
     plt.colorbar(img)
     ax[i][0].set_ylabel('Flux', size=13)
-    ax[i][0].set_ylim(-0.5, 1.5)
-    ax[i][0].plot(ph, processed_train_lc[k], color = 'tab:red', linewidth='2')
+    # ax[i][0].set_ylim(-0.5, 1.5)
+    ax[i][0].plot(ph, processed_train_lc[k]-train_lc_horiz_scaled[k], color = 'tab:red', linewidth='2')
     ax[i][0].grid('on')
     i = i + 1
-plt.savefig('plot_train_lc.png')
+plt.savefig(base_model_folder+'plot_train_lc.png')
 plt.close()
 
 # Plot - Vald LCs
@@ -261,13 +255,20 @@ for i in np.arange(0,num):
     img = ax[i][1].imshow(vald_shape[k],cmap='inferno')
     plt.colorbar(img)
     ax[i][0].set_ylabel('Flux',size=13)
-    ax[i][0].set_ylim(-0.5,1.5)
+    # ax[i][0].set_ylim(-0.5,1.5)
     # ax[i][0].scatter(ph, vald_lc_scaled_append[k],color = 'black',marker='.')
-    ax[i][0].plot(ph, processed_vald_lc[k],color = 'tab:red',linewidth='2')
+    ax[i][0].plot(ph, processed_vald_lc[k]-vald_lc_horiz_scaled[k], color = 'tab:red', linewidth='2')
     ax[i][0].grid('on')
     i = i + 1
 plt.savefig(base_model_folder+'plot_vald_lc.png')
 plt.close()
+
+# Delete lightcurves no longer required
+del train_lc_horiz_scaled
+del vald_lc_horiz_scaled
+
+del train_lc_horiz_scaled_noise
+del vald_lc_horiz_scaled_noise
 
 # Model path to be saved to
 model_save_path = base_model_folder+"april24_2024_model_unfDist_LDC_size_horz_scale.h5"
