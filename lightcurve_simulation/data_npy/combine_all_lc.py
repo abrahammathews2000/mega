@@ -7,22 +7,16 @@ import numpy as np
 
 # Train
 # List of file names to be combined
-folder_path = '../../data/train/npy/lc/'
-file_names = [folder_path + 'lc_1_shape_5.npy',
-folder_path + 'lc_2_shape_5.npy',
-folder_path + 'lc_3_shape_5.npy',
-folder_path + 'lc_4_shape_5.npy',
-folder_path + 'lc_5_shape_5.npy',
-folder_path + 'lc_6_shape_5.npy',
-folder_path + 'lc_7_shape_5.npy',
-folder_path + 'lc_8_shape_5.npy',
-folder_path + 'lc_9_shape_5.npy']
+folder_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/'
+file_names = [folder_path + 'lc_10_shape_5_multisize_multiLDC.npy',
+              folder_path + 'lc_12_shape_5_multisize_multiLDC.npy'
+]
 # Initialize an empty list to store the arrays
 arrays = []
 
 print("Files to combine:")
 print(file_names)
-save_path = '../../data/train/npy/lc/train_lc_1_to_9.npy'
+save_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/concatenated_lc/concat_lc_10_12_shape_5_multisize_multiLDC.npy'
 print("Save file in: "+save_path)
 choice = input("Do you like to continue (y/n)")
 

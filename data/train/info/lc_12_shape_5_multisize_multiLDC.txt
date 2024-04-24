@@ -1,5 +1,5 @@
 Log for creating lightcurves for: 
-    (132136 shapes - []--> Confirm from lc simulated)
+    (132136 shapes - [(132136,100)]--> Confirm from lc simulated)
 shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_filled5_batches/' # For Train
 save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_12_shape_5_multisize_multiLDC/' # For Train
 save_lc_npy = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_12_shape_5_multisize_multiLDC.npy'
@@ -17,6 +17,6 @@ max_workers = 20
 Dependent code: /lightcurve_simulation/data_raw/backend_rand_param_batch_lc_gen.py
 
 2. Create light curve as npy file 
-(lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - n
+(lightcurve_simulation/data_npy/cnvt_lcFlux_to_npy.py) - y
 std_len_lc = 100
- <-- Change
+53.08 s<-- Change

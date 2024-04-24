@@ -23,3 +23,11 @@ Use the code: lightcurve_simulation/data_npy/cnvt_general_shape_to_npy.py
     - Save any new plots as csv
     - plot exocomet lightcurve
 Use the code:lightcurve_simulation/data_npy/plot_lc.ipynb
+
+6. To concat multiple shapes (.npy file) use this code:
+
+mega/lightcurve_simulation/data_npy/combine_all_shapes.py
+
+7. To concat multiple lightcurves (.npy file) use this code:
+
+mega/lightcurve_simulation/data_npy/combine_all_lc.py

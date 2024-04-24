@@ -7,22 +7,16 @@ import numpy as np
 
 # Train
 # List of file names to be combined
-folder_path = '../../data/train/npy/shape/'
+folder_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/'
 file_names = [folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy',
-folder_path + 'shape_5.npy']
+              folder_path + 'shape_5.npy'
+]
 # Initialize an empty list to store the arrays
 arrays = []
 
 print("Files to combine:")
 print(file_names)
-save_path = folder_path+'train_shape_5_9times.npy'
+save_path = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/concatenated_shape/train_shape_5_2times.npy'
 print("Save file in: "+save_path)
 choice = input("Do you like to continue (y/n)")
 

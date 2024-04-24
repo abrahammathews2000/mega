@@ -32,25 +32,42 @@ Lightcurves
     | LDCs=[0.4,0.05] 
     | star2mega_ratio_array = 4
 
-10. data/train/npy/lc/train_lc_1_to_9.npy
-    Concatenation of light curve from S.No. 1 to 9
+10. /scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/concatenated_lc/train_lc_1_to_9_shape_5.npy
+    - Concatenation of light curve from S.No. 1 to 9
+
+    /scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/concatenated_shape/train_shape_5_9times.npy
+    - Concatenation of shape_5 nine times
 
 11. lc_10_shape_5_multisize_multiLDC/
     data/train/npy/lc/lc_10_shape_multisize_multiLDC.npy | (1) done (2) done
     LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
     star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20
+    save_lc_npy = /scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_10_shape_5_multisize_multiLDC.npy
+
 
 12. April_20_2024_shape
 4074 shapes created
 
-13 lc_11_shape_5_multisize_multiLDC/
+13. lc_11_shape_5_multisize_multiLDC/
 !! Run cancelled (:|)
 ((1) not done (2) not done)
 lc = LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,
                     LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],
                     star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=350)
-14 lc_12_shape_5_multisize_multiLDC/
-((1) not done (2) not done)
+14. lc_12_shape_5_multisize_multiLDC/
+((1) done (2) done)
 lc = LcGenerator(shape_dir=shape_dir, save_lc_folder_name=save_lc_in_folder,
                     LD_Coeff_dist_start=[0, 0], LD_Coeff_dist_stop=[1, 0.55],
                     star2mega_radius_ratio_start=2, star2mega_radius_ratio_stop=30)
+shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_filled5_batches/' # For Train
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/lc/lc_12_shape_5_multisize_multiLDC/' # For Train
+save_lc_npy = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/lc_12_shape_5_multisize_multiLDC.npy'
+
+15. Concatenation of 
+    (a) lc_10_shape_5_multisize_multiLDC.npy
+    (b) lc_12_shape_5_multisize_multiLDC.npy
+
+    Output: /scratch/abraham/Documents/mega_git/mega/data/train/npy/lc/concatenated_lc/concat_lc_10_12_shape_5_multisize_multiLDC.npy
+
+    /scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/concatenated_shape/train_shape_5_2times.npy
+    - Concatenation of shape_5 two times
