@@ -203,16 +203,16 @@ for i in np.arange(len(vald_lc_horiz_scaled)):
 processed_train_lc = train_lc_horiz_scaled_noise
 processed_vald_lc = vald_lc_horiz_scaled_noise
 
-print(f"processed_train_lc = {processed_train_lc}")
-print(f"processed_vald_lc = {processed_vald_lc}")
+print(f"processed_train_lc.shape = {processed_train_lc.shape}")
+print(f"processed_vald_lc.shape = {processed_vald_lc.shape}")
 
 # Verification
 # Plot - Train LCs
 plt.clf()
 num = 3
 fig,ax=plt.subplots(num,
-                    2, 
-                    figsize=(6,5), 
+                    2,
+                    figsize=(6,5),
                     gridspec_kw={'width_ratios': [2,1], 'wspace': 0.2, 'hspace': 0.4}
 )
 
@@ -224,7 +224,12 @@ ph = np.linspace(-1,1,len(processed_train_lc[0]))
 i = 0
 for i in np.arange(0, num):
     k = np.random.randint(0, len(processed_train_lc)-1)
-    ax[i][1].tick_params(left = False, right = False , labelleft = False, labelbottom = False, bottom = False)
+    ax[i][1].tick_params(left=False, 
+                         right=False, 
+                         labelleft=False, 
+                         labelbottom=False, 
+                         bottom=False
+    )
     if(i<num-1): ax[i][0].tick_params(labelbottom = False, bottom = False)
     img = ax[i][1].imshow(train_shape[k], cmap='inferno')
     plt.colorbar(img)
@@ -239,8 +244,10 @@ plt.close()
 # Plot - Vald LCs
 plt.clf()
 num = 3
-fig,ax=plt.subplots(num,2, figsize=(4,3), gridspec_kw={ 'width_ratios': [2,1],
-        'wspace': 0.2,'hspace': 0.4})
+fig,ax=plt.subplots(num,
+                    2, 
+                    figsize=(4, 3), 
+                    gridspec_kw={'width_ratios':[2,1], 'wspace':0.2, 'hspace':0.4})
 
 ax[0][1].set_title('Shape',size=15)
 ax[0][0].set_title('Light Curve (Vald Dataset)',size=15)
@@ -250,7 +257,12 @@ ph = np.linspace(-1,1,len(processed_vald_lc[0]))
 i = 0
 for i in np.arange(0,num):
     k = np.random.randint(0, len(processed_vald_lc)-1)
-    ax[i][1].tick_params(left = False, right = False , labelleft = False ,labelbottom = False, bottom = False)
+    ax[i][1].tick_params(left=False, 
+                         right=False, 
+                         labelleft=False, 
+                         labelbottom=False, 
+                         bottom=False
+    )
     if(i<num-1): ax[i][0].tick_params(labelbottom = False, bottom = False)
     img = ax[i][1].imshow(vald_shape[k],cmap='inferno')
     plt.colorbar(img)
@@ -373,7 +385,7 @@ x=keras.layers.MaxPool1D(5,
                          strides=2,
                          data_format='channels_last',
                          name='maxpool_3', 
-                         padding='same')(x) #100
+                         padding='same')(x)
 
 x=keras.layers.Flatten(name='flat_1')(x)
 
@@ -441,7 +453,7 @@ lr_sched = keras.callbacks.LearningRateScheduler(step_decay)
 print("Learning rate scheduler defined")
 
 # Model checkpoint
-checkpoint_path = base_model_folder+"april24_2024_model/ckpt/checkpoint.weights.h5"
+checkpoint_path = base_model_folder+"ckpt/checkpoint.weights.h5"
 
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     checkpoint_path,
