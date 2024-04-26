@@ -1,0 +1,22 @@
+Kepler-5b_April15_2024_v2.npy
+
+* Light curve cleaned and interpolated between -0.5 d to 0.5 d
+to equally spaced 120 datapoints
+* Code: lightkurve_kepler_lc.ipynb in GColab abrahammathews2000@gmail.com
+
+lc = lk.search_lightcurve(
+    "Kepler-5b", mission='Kepler', exptime=1800
+).download_all()
+lc_raw = lc.stitch()
+lc_clean = lc_raw.remove_outliers(sigma=10, sigma_upper=1)
+
+# planet_b_period = 3.5484748474847483 d
+# planet_b_t0 = 122.89845491752872
+# planet_b_dur = 0.15 d
+
+lc_flat, trend_lc = lc_clean.flatten(return_trend=True, mask=transit_mask)
+lc_fold = lc_flat.fold(planet_b_period, epoch_time=planet_b_t0)
+lc_global = lc_fold.bin(time_bin_size=0.0065).normalize()
+lc_global.scatter()
+
+lc is not minmax scaled before saved as npy file

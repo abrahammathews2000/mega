@@ -1,0 +1,35 @@
+1
+(a) 14Feb2024_circle_38_38_px.npy 
+    - Contains a single circle with size 38 x 38 px image array - 1 file only
+    - Original circle made using paintz
+
+(b) random/npy/lc/lc_1_14Feb2024_circle_38_38_px.npy
+    - ratio star_to_mega = 4
+    - Quadratic LDCs = [0.5,0.05]
+ **Length of each light curve is 100** (So append 10 1s on each side for ML)
+(c) data/random/npy/lc/lc_1_14Feb2024_circle_38_38_px.npy
+    raw_lc_dir =  /scratch/abraham/Documents/mega_git/mega/data/random/raw/lc/14Feb2024_circle_38_38_px/
+    output_npy_lc_path =  /scratch/abraham/Documents/mega_git/mega/data/random/npy/lc/lc_1_14Feb2024_circle_38_38_px.npy
+    Do you want to run the code? (y/n): y
+    Running the code...
+    lcFlux_filenames =  ['lc_4_0.csv']
+    No. of files = length - lcFlux_filenames =  1
+    shape_dict =  (1, 100)
+    Interpolated the original lightcurve
+    lc_dict =  [[1.         1.         1.         0.99993492 0.99918068 0.99772997
+    0.99580803 0.99350105 0.99082308 0.98787279 0.98472765 0.98139452
+    0.9779205  0.97434982 0.97069343 0.9669737  0.96331207 0.95963225
+    0.95620485 0.95312293 0.95079185 0.94931852 0.9481755  0.94715852
+    0.94623861 0.94539902 0.94462831 0.94391811 0.94326198 0.94265484
+    0.94209253 0.94157165 0.94108932 0.94064313 0.94023321 0.93985535
+    0.93950805 0.93919001 0.9389001  0.93863732 0.93840082 0.93818984
+    0.93800373 0.93784195 0.93770401 0.93758951 0.93749815 0.93742966
+    0.93738384 0.93736058 0.93736058 0.93738384 0.93742966 0.93749815
+    0.93758951 0.93770401 0.93784195 0.93800373 0.93818984 0.93840082
+    0.93863732 0.9389001  0.93919001 0.93950805 0.93985535 0.94023321
+    0.94064313 0.94108932 0.94157165 0.94209253 0.94265484 0.94326198
+    0.94391811 0.94462831 0.94539902 0.94623861 0.94715852 0.9481755
+    0.94931852 0.95079185 0.95312293 0.95620485 0.95963225 0.96331207
+    0.9669737  0.97069343 0.97434982 0.9779205  0.98139452 0.98472765
+    0.98787279 0.99082308 0.99350105 0.99580803 0.99772997 0.99918068
+    0.99993492 1.         1.         1.        ]]

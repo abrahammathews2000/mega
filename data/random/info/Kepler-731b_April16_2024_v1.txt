@@ -1,0 +1,14 @@
+Kepler-731b_April16_2024_v1.npy
+
+planet_b_period = 3.8556855685568556 d # ExoFOP 3.856 days
+planet_b_t0 = 132.1069288128044
+planet_b_dur = 0.1 d
+
+
+period = np.linspace(3, 5, 10000)
+bls = lc_clean.to_periodogram(method='bls', period=period, frequency_factor=500)
+bls.plot()
+
+
+lc_global = lc_fold.bin(time_bin_size=0.0085).normalize()
+lc_global.scatter()

@@ -1,0 +1,24 @@
+BATMAN_startoplanet18_a0.3_b0.12.npy
+Planet radius (in units of stellar radii) = 0.05555555555555555
+Star to planet ratio = 18.0
+LDC = quadratic
+LDC = [0.3, 0.12]
+
+Period = params.per
+t = np.linspace(-0.025, 0.025, 1000)
+m = batman.TransitModel(params, t)    #initializes model
+flux = m.light_curve(params)          #calculates light curve
+
+plt.plot(t, flux)
+plt.xlabel("Phase")
+plt.ylabel("Relative flux")
+plt.show()
+
+# Interpolate and save the light curve uniformly spaced from -1 to 1
+f = interp1d(t, flux, kind='linear')
+
+new_time = np.linspace(-0.02, 0.02, 120)
+new_flux = f(new_time)
+
+plt.plot(new_time, new_flux)
+plt.show()

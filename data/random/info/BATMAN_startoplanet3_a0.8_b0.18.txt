@@ -1,0 +1,35 @@
+BATMAN_startoplanet3_a0.8_b0.18.npy
+
+params = batman.TransitParams()
+params.t0 = 0.                       #time of inferior conjunction
+params.per = 1.                      #orbital period
+params.rp = 1/3                      #planet radius (in units of stellar radii)
+print(f"Planet radius (in units of stellar radii) = {params.rp}")
+print(f"Star to planet ratio = {1/params.rp}")
+
+params.a = 15.                       #semi-major axis (in units of stellar radii)
+params.inc = 90.                     #orbital inclination (in degrees)
+params.ecc = 0.                      #eccentricity
+params.w = 90.                       #longitude of periastron (in degrees)
+params.u = [0.8, 0.18]                #limb darkening coefficients [u1, u2]
+params.limb_dark = "quadratic"       #limb darkening model
+
+Planet radius (in units of stellar radii) = 0.3333333333333333
+Star to planet ratio = 3.0
+LDC = quadratic
+LDC = [0.8, 0.18]
+
+---
+Period = params.per
+t = np.linspace(-0.025, 0.025, 1000)
+m = batman.TransitModel(params, t)    #initializes model
+flux = m.light_curve(params)          #calculates light curve
+---
+# Interpolate and save the light curve uniformly spaced from -1 to 1
+f = interp1d(t, flux, kind='linear')
+
+new_time = np.linspace(-0.02, 0.02, 120)
+new_flux = f(new_time)
+
+plt.plot(new_time, new_flux)
+plt.show()

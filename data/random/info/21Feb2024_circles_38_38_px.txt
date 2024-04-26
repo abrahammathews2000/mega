@@ -1,0 +1,18 @@
+1
+Step (0) Convert images into grayscale 
+    (Code: lightcurve_simulation/data_raw/cnvt_rgb_to_gray.py)
+Step (a) 21Feb2024_circles_38_38_px.npy (Code: lightcurve_simulation/data_npy/cnvt_general_shape_to_npy.py)
+    - Contains 8 different circles with different sizes
+         with size 38 x 38 px image array - 1 file only
+    - circle made using python code from Gemini
+    - done
+
+Step (b) random/npy/lc/lc_1_21Feb2024_circles_38_38_px.npy
+    (Code a: lightcurve_simulation/data_raw/pll_create_8bit_lc.py) - done
+    (Code b: lightcurve_simulation/data_npy/cnvt_general_lcFlux_to_npy.py) - done
+    - ratio star_to_mega = 4
+    - Quadratic LDCs = [0.5,0.05]
+    - done
+    - lc_dict =  (8, 120)
+    All the LC are converted into single npy file
+    Destructor called, obj deleted.
