@@ -11,9 +11,16 @@ from EightBitTransit.misc import *
 import concurrent.futures
 
 class LcGenerator:
-    def __init__(self, shape_dir, save_lc_folder_name, 
-                 LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
-                 star2mega_radius_ratio_start = 3,star2mega_radius_ratio_stop = 20):
+    def __init__(self, 
+                 shape_dir, 
+                 save_lc_folder_name,
+                 star2mega_radius_ratio_info_save_path,
+                 LDC_info_save_path,
+                 LD_Coeff_dist_start = [0.1,0.05],
+                 LD_Coeff_dist_stop = [0.9,0.2],
+                 star2mega_radius_ratio_start = 3,
+                 star2mega_radius_ratio_stop = 20
+    ):
         rng = np.random.default_rng()
         self.shape_dir = shape_dir  # './generatedData/shape_dict.npy'
         self.y = np.load(self.shape_dir)
@@ -22,6 +29,8 @@ class LcGenerator:
         self.radius_mega = self.y_shape[0] / 2
 
         self.save_lc_folder_name = save_lc_folder_name
+        self.star2mega_radius_ratio_info_save_path = star2mega_radius_ratio_info_save_path
+        self.LDC_info_save_path = LDC_info_save_path
 
         ##
         # To exchange the background and shape pixel value to opacity value
@@ -33,20 +42,19 @@ class LcGenerator:
         
         # Make the relative radius as uniform distribution
         star2mega_radius_ratio = rng.integers(low = star2mega_radius_ratio_start, high=star2mega_radius_ratio_stop, size=len(self.y))
-        np.savetxt("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/star2megaRadius.csv", 
+        np.savetxt(self.star2mega_radius_ratio_info_save_path, 
                     star2mega_radius_ratio, delimiter=',')
         print("star2mega_radius_ratio details save in: ")
-        print("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/star2megaRadius.csv")
+        print(self.star2mega_radius_ratio_info_save_path)
     
         # Make the LDCs  as uniform distribution
         a = np.random.default_rng().uniform(low = LD_Coeff_dist_start[0],high = LD_Coeff_dist_stop[0],size = len(self.y)) # np.ones(5)*0.3 # 
         b = np.random.default_rng().uniform(low = LD_Coeff_dist_start[1],high = LD_Coeff_dist_stop[1],size = len(self.y)) # np.ones(5)*0.6 #
         LD_Coeff = np.array([a,b]).T
 
-        np.savetxt("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/LDCs.csv", 
-                    LD_Coeff, delimiter=',')
+        np.savetxt(LDC_info_save_path, LD_Coeff, delimiter=',')
         print("LDC details save in: ")
-        print("/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_2_details/LDCs.csv")
+        print(LDC_info_save_path)
 
         # Testing on GPU
         # for i in np.arange(len(self.y)):

@@ -14,7 +14,7 @@ import time
 
 # 2. Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_1_multisize_multiLDC_2/'
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_1_multisize_multiLDC_3/'
 # save_lc_in_folder = '../../data/test/raw/lc/lc_17_shape_1/' # For Test
 # save_lc_in_folder = '../../data/vald/raw/lc/lc_9_shape_1/' # For Validation
 #
@@ -31,17 +31,32 @@ shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/test/npy/shape/shape_
 print("Which shapes do you need to simulate to get the lcs? \n ",shape_dir)
 print("Where do you want to save the lcs? \n ",save_lc_in_folder)
 
-print("LD_Coeff_dist_start = [0.1,0.0], LD_Coeff_dist_stop = [0.9,0.2],","\n",
-                    "star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20")
+LD_Coeff_dist_start = [0, 0]
+LD_Coeff_dist_stop = [1, 0.55]
+star2mega_radius_ratio_start = 2
+star2mega_radius_ratio_stop = 30
+print("LD_Coeff_dist_start=", LD_Coeff_dist_start)
+print("LD_Coeff_dist_stop=", LD_Coeff_dist_stop)
+print("star2mega_radius_ratio_start=", star2mega_radius_ratio_start)
+print("star2mega_radius_ratio_stop=", star2mega_radius_ratio_stop)
+
+star2mega_radius_ratio_info_save_path = "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_3_details/star2megaRadius.csv"
+LDC_info_save_path= "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_3_details/LDCs.csv"
 
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
 if user_input.lower() == "y":
     os.makedirs(save_lc_in_folder, exist_ok=True)
    
-    lc = LcGenerator(shape_dir = shape_dir, save_lc_folder_name = save_lc_in_folder,
-                    LD_Coeff_dist_start = [0.1,0.0], LD_Coeff_dist_stop = [0.9,0.2],
-                    star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20)
+    lc = LcGenerator(shape_dir=shape_dir, 
+                     save_lc_folder_name=save_lc_in_folder,
+                     star2mega_radius_ratio_info_save_path=star2mega_radius_ratio_info_save_path,
+                     LDC_info_save_path=LDC_info_save_path,
+                     LD_Coeff_dist_start=LD_Coeff_dist_start,
+                     LD_Coeff_dist_stop=LD_Coeff_dist_stop,
+                     star2mega_radius_ratio_start=star2mega_radius_ratio_start,
+                     star2mega_radius_ratio_stop=star2mega_radius_ratio_stop
+)
     del lc
 else:
     print("Exiting the program.")
