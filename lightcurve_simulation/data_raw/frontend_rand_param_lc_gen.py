@@ -43,6 +43,10 @@ print("star2mega_radius_ratio_stop=", star2mega_radius_ratio_stop)
 star2mega_radius_ratio_info_save_path = "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_3_details/star2megaRadius.csv"
 LDC_info_save_path= "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_3_details/LDCs.csv"
 
+print("Save simulation info here:")
+print("star2mega_radius_ratio_info_save_path \n", star2mega_radius_ratio_info_save_path)
+print("LDC_info_save_path \n", LDC_info_save_path)
+
 user_input = input("Do you want to run the code? (y/n): ")
 tic = time.perf_counter()
 if user_input.lower() == "y":
