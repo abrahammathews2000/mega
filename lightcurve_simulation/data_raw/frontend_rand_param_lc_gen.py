@@ -14,7 +14,7 @@ import time
 
 # 2. Where do you want to save the lcs?
 # !! Change this everytime you run !!
-save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_1_multisize_multiLDC_3/'
+save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/lc_shape_2_multisize_multiLDC_1/'
 # save_lc_in_folder = '../../data/test/raw/lc/lc_17_shape_1/' # For Test
 # save_lc_in_folder = '../../data/vald/raw/lc/lc_9_shape_1/' # For Validation
 #
@@ -22,7 +22,7 @@ save_lc_in_folder = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/lc/l
 # 3. Which shapes do you need to simulate to get the lcs?
 # Give the npy file path for the shape
 # shape_dir = 
-shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/test/npy/shape/shape_1.npy' # For Test
+shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/test/npy/shape/shape_2.npy' # For Test
 # shape_dir = '' # For Validation
 
 # if not os.path.exists(save_lc_in_folder):
@@ -40,8 +40,8 @@ print("LD_Coeff_dist_stop=", LD_Coeff_dist_stop)
 print("star2mega_radius_ratio_start=", star2mega_radius_ratio_start)
 print("star2mega_radius_ratio_stop=", star2mega_radius_ratio_stop)
 
-star2mega_radius_ratio_info_save_path = "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_3_details/star2megaRadius.csv"
-LDC_info_save_path= "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_1_multisize_multiLDC_3_details/LDCs.csv"
+star2mega_radius_ratio_info_save_path = "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_2_multisize_multiLDC_1_details/star2megaRadius.csv"
+LDC_info_save_path= "/scratch/abraham/Documents/mega_git/mega/data/test/info/lc_shape_2_multisize_multiLDC_1_details/LDCs.csv"
 
 print("Save simulation info here:")
 print("star2mega_radius_ratio_info_save_path \n", star2mega_radius_ratio_info_save_path)

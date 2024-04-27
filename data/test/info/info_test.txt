@@ -72,8 +72,10 @@ Lightcurves
 
 22. April_20_2024_shape (please rename to shape_2 while saving as .npy)
 4074 shapes created
+saved as shape_2.npy
+(/scratch/abraham/Documents/mega_git/mega/data/test/npy/shape/shape_2.npy)
 
-data/test/raw/lc/lc_shape_2_multisize_multiLDC_1/
-    data/test/npy/lc/lc_shape_2_multisize_multiLDC_1.npy | (1) not done (2) not one
+23. data/test/raw/lc/lc_shape_2_multisize_multiLDC_1/
+    data/test/npy/lc/lc_shape_2_multisize_multiLDC_1.npy | (1) done (2) done
     LD_Coeff_dist_start = [0, 0], LD_Coeff_dist_stop = [1, 0.55],
     star2mega_radius_ratio_start = 2, star2mega_radius_ratio_stop = 30
