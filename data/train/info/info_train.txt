@@ -46,7 +46,7 @@ Lightcurves
 
 
 12. April_20_2024_shape
-4074 shapes created
+4074 shapes created (moved to test)
 
 13. lc_11_shape_5_multisize_multiLDC/
 !! Run cancelled (:|)

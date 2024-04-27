@@ -12,7 +12,7 @@ tic = time.perf_counter()
 class SaveAsNpy:
     def __init__(self, shape_dir, save_location_npy_file):
         # shape_dir - folder where shapes in png are stored
-        # save_location_npy_file - name of the npy file to be saved as. Don't include the extension
+        # save_location_npy_file - name of the npy file to be saved as. Don't include the extension ".npy"
         self.save_location_npy_file = save_location_npy_file
         self.shape_dir = str(shape_dir)
         self.shape_filenames = natsorted(os.listdir(self.shape_dir))
@@ -50,8 +50,8 @@ class SaveAsNpy:
 # j = SaveAsNpy(shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/train/raw/shape/shape_oblate/',
 #              save_location_npy_file = '/scratch/abraham/Documents/mega_git/mega/data/train/npy/shape/shape_oblate' )
 
-j = SaveAsNpy(shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/random/raw/shape/21Feb2024_circles_38_38_px/',
-              save_location_npy_file = '/scratch/abraham/Documents/mega_git/mega/data/random/npy/shape/21Feb2024_circles_38_38_px')
+j = SaveAsNpy(shape_dir = '/scratch/abraham/Documents/mega_git/mega/data/test/raw/shape/20_April_2024_shape/',
+              save_location_npy_file = '/scratch/abraham/Documents/mega_git/mega/data/test/npy/shape/shape_2')
 
 
 # save_location_npy_file - name of the npy file to be saved as. Don't include the extension

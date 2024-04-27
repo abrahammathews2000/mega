@@ -61,11 +61,19 @@ Lightcurves
     data/test/npy/lc/lc_shape_1_multisize_multiLDC.npy | (1) done (2) done
     LD_Coeff_dist_start = [0.1,0.05], LD_Coeff_dist_stop = [0.9,0.2],
     star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20
-20. data/test/raw/lc/lc_shape_1_multisize_multiLDC/
+20. data/test/raw/lc/lc_shape_1_multisize_multiLDC_2/
     data/test/npy/lc/lc_shape_1_multisize_multiLDC_2.npy | (1) done (2) done
     LD_Coeff_dist_start = [0.1,0], LD_Coeff_dist_stop = [0.9,0.2],
     star2mega_radius_ratio_start = 3, star2mega_radius_ratio_stop = 20
-21. data/test/raw/lc/lc_shape_1_multisize_multiLDC/
+21. data/test/raw/lc/lc_shape_1_multisize_multiLDC_3/
     data/test/npy/lc/lc_shape_1_multisize_multiLDC_3.npy | (1) done (2) done
+    LD_Coeff_dist_start = [0, 0], LD_Coeff_dist_stop = [1, 0.55],
+    star2mega_radius_ratio_start = 2, star2mega_radius_ratio_stop = 30
+
+22. April_20_2024_shape (please rename to shape_2 while saving as .npy)
+4074 shapes created
+
+data/test/raw/lc/lc_shape_2_multisize_multiLDC_1/
+    data/test/npy/lc/lc_shape_2_multisize_multiLDC_1.npy | (1) not done (2) not one
     LD_Coeff_dist_start = [0, 0], LD_Coeff_dist_stop = [1, 0.55],
     star2mega_radius_ratio_start = 2, star2mega_radius_ratio_stop = 30

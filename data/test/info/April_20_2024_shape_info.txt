@@ -2,3 +2,4 @@ It contains 4074 shapes so far.
 rad_array =  np.random.default_rng().uniform(low=0, high=1, size=15)                                
 edgy_array =  np.arange(0, 15, 1)
 edges_array = np.arange(3, 20, 1)
+move this from train to test. Moved to test.
