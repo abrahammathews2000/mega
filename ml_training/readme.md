@@ -19,3 +19,11 @@ Miscellance Operations
 - Plot input lightcurve
 - Show predicted output
 - Show true output
+
+3. /scratch/abraham/Documents/mega_git/mega/ml_training/Google_Colab_Codes
+
+This folder contains the final codes used to train our final model. Also inference on 4 difference cases are also done:
+1. Test Lightcurves from EightBitTransit
+2. Ideal Exoplanet light curves from BATMAN package
+3. Kepler lightcurves downloaded using Lightkurve package
+4. Exocomet light curve fit

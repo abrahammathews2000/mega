@@ -22,6 +22,9 @@ Use the code: lightcurve_simulation/data_npy/cnvt_general_shape_to_npy.py
     - To plot the difference between two lightcurves
     - Save any new plots as csv
     - plot exocomet lightcurve
+    - To generate BATMAN lightcurve and save as npy
+
+
 Use the code:lightcurve_simulation/data_npy/plot_lc.ipynb
 
 6. To concat multiple shapes (.npy file) use this code:
