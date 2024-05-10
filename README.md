@@ -2,6 +2,8 @@
 
 This repository contains the codes I am using for my Master's Thesis.
 
+All the datasets and final trained model are uploaded in this Google Drive Link: https://drive.google.com/drive/folders/15Cz5QkND9pC6HosmHSYo_b3DK3SVAEVp?usp=sharing
+
 The main steps involved in this projects is as follows:
 
 1. Generated arbitrary shapes for the transiting object using Bezier curves and save them as image files. I have used one publicly available code to generate the random shapes.
