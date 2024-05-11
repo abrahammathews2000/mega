@@ -1,0 +1,11 @@
+Hand made 20 images
+
+Light curves:
+1. mega/data/test/raw/lc/lightcurve_10_may_2024_shapes
+# Specifiy the limb darkening coefficient
+LD_Coeff = [0.5,0.05]
+
+# Specifiy the size ratio between star and megastructure
+star2mega_ratio_array = np.array([4])
+
+lc_dict =  (20, 100)
