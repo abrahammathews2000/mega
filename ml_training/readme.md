@@ -1,3 +1,5 @@
+To see the final training and inference code see Sl. No.3 below.
+
 1. /scratch/abraham/Documents/mega_git/mega/ml_training/ml_train_lightcurve_unf_dist_LDC_size.py
 
 - .py code help to run the code in screen mode .ipynb cannot do that
