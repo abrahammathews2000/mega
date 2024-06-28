@@ -15,3 +15,7 @@ The main steps involved in this projects is as follows:
 4. We used a 1D CNN machine learning model for mapping transit light curve flux value to the 2D shadow image.
 
 5. After training the model, we  tested it on analytical planet light curves from BATMAN package.
+
+## Quick Start:
+
+Refer this folder to see the training and inference codes: https://github.com/abrahammathews2000/mega/tree/main/ml_training/Google_Colab_Codes
