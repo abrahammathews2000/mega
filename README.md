@@ -19,5 +19,3 @@ The main steps involved in this projects is as follows:
 ## Quick Start:
 
 Refer this folder to see the training and inference codes: https://github.com/abrahammathews2000/mega/tree/main/ml_training/Google_Colab_Codes
-
-Generating shapes and light curves is little lengthy process (I will try to explain ASAP), till then you could try already saved light curves and shape.
